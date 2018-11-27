@@ -8,6 +8,7 @@ const resources = {
     "banner1": require("../../assets/images/banner/shop_banner1.png"),
     "banner2": require("../../assets/images/banner/shop_banner2.png"),
     "banner3": require("../../assets/images/banner/shop_banner3.png"),
+    "pushIcon": require("../../assets/images/push.png")
 }
 
 export function getAssetByFilename(filename) {

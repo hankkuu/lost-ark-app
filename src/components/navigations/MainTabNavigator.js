@@ -12,18 +12,23 @@ import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-n
 
 import { colors } from '@util/Colors';
 
-//import AuctionScreen from '@screen/mainTab/AuctionScreen';
-//import ShopScreen from '@screen/mainTab/ShopScreen';
+import HomeStackNavigator from '@navigation/HomeStackNavigator';
+
+import ItemAuctionScreen from '@screen/mainTab/ItemAuctionScreen';
+import CurrencyAuctionScreen from '@screen/mainTab/CurrencyAuctionScreen';
+import ShopScreen from '@screen/mainTab/ShopScreen';
+import SettingsScreen from '@screen/mainTab/SettingsScreen';
 
 //import SettingStackNavigator from '@navigation/SettingStackNavigator';
-import HomeStackNavigator from '@navigation/HomeStackNavigator';
+
 
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
-    //Auction: { screen: AuctionScreen, },
-    //Shop: { screen: ShopScreen },
-    //SettingStack: { screen: SettingStackNavigator },
+    ItemAuction: { screen: ItemAuctionScreen, },
+    CurrencyAution: { screen: CurrencyAuctionScreen },
+    Shop: { screen: ShopScreen },
+    SettingStack: { screen: SettingsScreen },
 }, {
         navigationOptions: ({ navigation }) => ({
             //...MainTabNavigationOptions,
@@ -35,8 +40,10 @@ const TabNavigator = createBottomTabNavigator({
                 switch (routeName) {
                     case 'Home':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('My')}</Text>;
-                    case 'Auction':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('경매장')}</Text>;
+                    case 'ItemAuction':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('아이템경매')}</Text>;
+                    case 'CurrencyAution':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('화폐경매')}</Text>;
                     case 'Shop':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('상점')}</Text>;
                     case 'SettingStack':
@@ -46,25 +53,20 @@ const TabNavigator = createBottomTabNavigator({
                 }
             }
         }),
-        animationEnabled: true,
-        swipeEnabled: Platform.select({ android: true, ios: false }),
+        //animationEnabled: true,
+        //swipeEnabled: Platform.select({ android: true, ios: false }),
         tabBarOptions: {
-            indicatorStyle: {
-                backgroundColor: 'red'
-            },
+            // indicatorStyle: {
+            //     backgroundColor: 'yellow'
+            // },   // TopTap에서 사용
             labelStyle: {
-                fontSize: 27,
-                //justifyContent: 'center',
-                //alignItems: 'center',
+                
             },
             style: {
                 height: 50,
-                //justifyContent: 'center',
-                backgroundColor: colors.darkBlue,
-                //alignItems: 'center',
+                backgroundColor: colors.darkBlue,                
             },
             tabStyle: {
-                justifyContent: 'center',
                 alignItems: 'center',
             }
         }
@@ -75,13 +77,8 @@ const styles = StyleSheet.create({
     txt: {
         color: 'white',
         fontSize: 15,
-        marginBottom: 15,
+        paddingVertical: 15
         //justifyContent: 'center',
         //alignItems: 'center',
-    },
-    txtSub: {
-        color: 'white',
-        fontSize: 15,
-        fontWeight: '700',
     },
 })

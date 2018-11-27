@@ -17,7 +17,7 @@ import HomeScreen from '@screen/home/HomeScreen';
 import NoticeScreen from '@screen/home/NoticeScreen';
 import DetailNoticeScreen from '@screen/home/details/DetailNoticeScreen';
 
-// import CouponScreen from '@screen/home/CouponScreen';
+import CouponScreen from '@screen/home/CouponScreen';
 import RechargeScreen from '@screen/home/RechargeScreen';
 // import AdditionServiceScreen from '@screen/home/AdditionServiceScreen';
 // import MyShopScreen from '@screen/home/MyShopScreen';
@@ -40,7 +40,7 @@ const routeConfig = {
     Notice: { screen: NoticeScreen, },
     DetailNotice: { screen: DetailNoticeScreen },
 
-    // Coupon: { screen: CouponScreen, },
+    Coupon: { screen: CouponScreen, },
     Recharge: { screen: RechargeScreen },    
     // AdditionService: { screen: AdditionServiceScreen },
 

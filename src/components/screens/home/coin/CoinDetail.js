@@ -10,7 +10,7 @@ class CoinDetail extends Component {
     render() {
         let date = new Date();
         let now = date.toLocaleString();
-        console.log(this.props.time);
+        //console.log(this.props.time);
 
         return (
             <View style={styles.container}>

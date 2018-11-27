@@ -10,12 +10,8 @@ class TopBar extends Component {
         // console.log(this.props.refreshDate);
         return (
             <View style={styles.container}>
-                <Text>Left</Text>
-                <View>
-                    <Text style={{ fontSize: 20 }}>{this.props.title} </Text>
-                    <Text style={{ fontSize: 10 }}>{this.props.refreshDate || ','}</Text>
-                </View>
-                <Text>Right</Text>
+                <Text style={{ fontSize: 20 }}>{this.props.title} </Text>
+                <Text style={{ fontSize: 20 }}>{this.props.refreshDate || ','}</Text>
             </View>
         );
     }
@@ -25,13 +21,10 @@ export default TopBar;
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 80,
+        height: 40,
         flexDirection: 'row', // row
         backgroundColor: '#ff9192',
         alignItems: 'center',
-        justifyContent: 'space-between', // center, space-around
+        justifyContent: 'center', // center, space-around
     },
-    btn: {
-
-    }
 });

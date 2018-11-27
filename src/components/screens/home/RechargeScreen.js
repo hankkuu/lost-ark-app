@@ -5,8 +5,8 @@ import {
     StyleSheet,
     StatusBar
 } from "react-native";
-import CoinView from './ConinView';
-import TopBar from './TopBar';
+import CoinView from './coin/ConinView';
+import TopBar from './coin/TopBar';
 
 class RechargeScreen extends Component {
     constructor(props){

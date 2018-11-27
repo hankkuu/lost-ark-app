@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from "react-native";
 
-class Test extends Component {
+class CurrencyAutionScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Test</Text>
+                <Text>CurrencyAutionScreen</Text>
             </View>
         );
     }
 }
-export default Test;
+export default CurrencyAutionScreen;
 
 const styles = StyleSheet.create({
     container: {

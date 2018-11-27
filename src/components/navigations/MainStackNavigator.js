@@ -14,16 +14,16 @@ import { createStackNavigator } from 'react-navigation';
 import MainTabNavigator from '@navigation/MainTabNavigator';
 import { commonHeaderNavigationOptions } from '@navigation/options/CommonHeaderNavigationOptions'
 
-import CashScreen from "../screens/shop/CashScreen";
-import PurchaseHistoryScreen from '@screen/shop/PurchaseHistoryScreen';
-import GoodsDetailScreen from "../screens/shop/GoodsDetailScreen";
+//import CashScreen from "../screens/shop/CashScreen";
+//import PurchaseHistoryScreen from '@screen/shop/PurchaseHistoryScreen';
+//import GoodsDetailScreen from "../screens/shop/GoodsDetailScreen";
 
 
 const routeConfig = {
     MainTab: { screen: MainTabNavigator,  },
-    Cash: { screen: CashScreen },
-    PurchaseHistory: { screen: PurchaseHistoryScreen },
-    GoodsDetail: { screen: GoodsDetailScreen }
+    //Cash: { screen: CashScreen },
+    //PurchaseHistory: { screen: PurchaseHistoryScreen },
+    //GoodsDetail: { screen: GoodsDetailScreen }
 }
 
 const navigatorConfig = {
@@ -43,7 +43,7 @@ const navigatorConfig = {
             case 1:
             {
                 return ({
-                    ...commonHeaderNavigationOptions,
+                    //...commonHeaderNavigationOptions,
                     title: navigation.state.routes[index].routeName,
                     headerLeft:
                         <TouchableOpacity
@@ -66,7 +66,7 @@ const navigatorConfig = {
             case 2:
             {
                 return ({
-                    ...commonHeaderNavigationOptions,
+                    //...commonHeaderNavigationOptions,
                     title: navigation.state.routes[index].routeName,
                     headerLeft:
                         <TouchableOpacity
