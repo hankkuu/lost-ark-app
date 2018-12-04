@@ -17,19 +17,22 @@ class CouponScreen extends Component {
         super(props);
         this.state = {
             token: null,
-            Notifications: null,
+            notification: null,
+            pushResult: [],
             receiptId: [],
             status: '',
+            receiptResult: [],
+            receiptStatus: ''
         }
     }
 
     render() {
         return (
-            <KeyboardAvoidingView 
-                style={styles.container} 
+            <KeyboardAvoidingView
+                style={styles.container}
                 keyboardVerticalOffset={120}
                 behavior="padding"              // or position, height
-                enabled   
+                enabled
             >
                 <ScrollView
                     style={styles.scrollView}
@@ -79,20 +82,31 @@ class CouponScreen extends Component {
                         </View>
                     ) : null}
                     {this.state.notification ? (
-                        <View>
+                        <View style={{ borderWidth: 2, borderColor: 'black' }}>
+                            <Text style={styles.text}>Push Json Data(Client received)</Text>
                             <Text style={styles.text}>{JSON.stringify(this.state.notification.data)} </Text>
-                            <Text style={styles.text}>{JSON.stringify(this.state.notification.data.message)} </Text>
+                            <Text style={styles.text}>{(this.state.notification.data.message)} </Text>
                             {/* <Text style={styles.text}>http status: {this.state.status} </Text> */}
                         </View>
                     ) : null}
-                    {this.state.receiptId ? (
-                        <View>
-                            <Text style={styles.text}>{this.state.receiptId} </Text>
+                    {this.state.pushResult.length> 0 ? (
+                        <View style={{ borderWidth: 2, borderColor: 'black', marginTop: 5 }} >
+                            <Text style={styles.text}>push result</Text>
+                            <Text style={styles.text}>{this.state.pushResult[0].id}</Text>
+                            <Text style={styles.text}>{this.state.pushResult[0].status}</Text>
                         </View>
                     ) : null}
-
+                    {this.state.receiptResult.length > 0 ? (
+                        <View style={{ borderWidth: 2, borderColor: 'black', marginTop: 5 }} >
+                            <Text style={styles.text}>receipt result</Text>                            
+                            <Text style={styles.text}>{JSON.stringify(this.state.receiptResult)} </Text>
+                        </View>
+                    ) : null}
                     <View>
-                        <Text style={styles.text}>receipt status : {this.state.status} </Text>
+                        <Text style={styles.text}>push send status : {this.state.status} </Text>
+                    </View>
+                    <View>
+                        <Text style={styles.text}>receipt send status : {this.state.receiptStatus} </Text>
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
@@ -109,8 +123,14 @@ class CouponScreen extends Component {
         }
 
         const token = await Notifications.getExpoPushTokenAsync();
+        //console.log("1111");
         this.subscription = Notifications.addListener(this.handleToken);
+        //console.log("2222");
         this.setState({ token });
+    }
+
+    static subscription = (notification) => {
+        console.log(notification);
     }
 
     sendPushNotification(token = this.state.token, title = this.state.title, body = this.state.body) {
@@ -125,45 +145,93 @@ class CouponScreen extends Component {
                 'Content-Type': 'application/json',
             },
             method: 'POST',
-        });
-
-        data.then(function (response) {
-            //console.log(response);
         })
+            .then((res) => res.json())
+            .then((data) => {   
+                let arr = [];               
+                for(let obj in data) {
+                    arr.push(data[obj]);
+                    this.setState({                         
+                        status: data[obj].status, 
+                    })                    
+                }  
+                //console.log(arr);
+                this.setState({
+                    pushResult : arr
+                })       
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
         let receiptId = [];
-        data.then(response => response.json())
-            .then(data => {
-                //console.log(data)            
-                if (data.data.status === 'ok') {
-                    receiptId.push(data.data.id);
-                    //console.log(receiptId);
-                    this.setState({ receiptId })
-                }
-            })
+        // data.then(response => response.json())
+        //     .then(data => {
+        //         //console.log(data)            
+        //         if (data.data.status === 'ok') {
+        //             receiptId.push(data.data.id);
+        //             //console.log(receiptId);
+        //             this.setState({ receiptId })
+        //         }
+        //     })
 
-        Platform.select({
-            ios:
-                Expo.Notifications.presentLocalNotificationAsync({
-                    title: title,
-                    body: body,
-                    android: { icon: getAssetByFilename("pushIcon") }
-                }),
-            android: null
-        })
+        //Platform.select({
+        //    ios:
+                // Expo.Notifications.presentLocalNotificationAsync({
+                //     title: title,
+                //     body: body,
+                //     android: {
+                //         channelId: 'reminders',  
+                //         //icon: getAssetByFilename("pushIcon") 
+                //     }
+                // })
+        //    android: null
+        //})
         return data;
     }
 
     getPushNotificationReceipts() {
-        let data = fetch("https://exp.host/--/api/v2/push/getReceipts", {
+        const data = this.state.pushResult[0];
+        let arr = [];
+        if(data.status === 'ok') {            
+            arr.push(data.id);                     
+        } else {
+            return null;
+        }  
+        //console.log("11" + arr);
+
+        let result = fetch("https://exp.host/--/api/v2/push/getReceipts", {
             body: JSON.stringify({
-                ids: this.state.receiptId
+                ids: arr
             }),
             headers: {
                 'Content-Type': 'application/json',
             },
             method: 'POST',
-        });
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                //console.log(data);
+                for( let key in data ) {
+                    let receipt = data[key];
+                    for(let r in receipt) {
+                        let s = receipt[r];
+                        for(let status in s) {
+                            //console.log(s[status]);
+                            let arr = [];
+                            arr.push(receipt);
+                            let tt = s[status];
+                            this.setState({
+                                receiptResult: arr,
+                                receiptStatus: s[status]
+                            });
+                        }
+                    }
+                }                
+            })
+            .catch((error) => {
+                console.log(error);
+            });
 
         // if (!data || typeof data !== 'object' || Array.isArray(data)) {
         //   let apiError = new Error(
@@ -173,22 +241,28 @@ class CouponScreen extends Component {
         //   throw apiError;
         // }
 
-        data.then(function (response) {
-            //console.log(response);
-        });
+        // data.then(function (response) {
+        //     //console.log(response);
+        // });
 
-        data.then(response => response.json())
-            .then(data1 => {
-                const { data } = data1;
-                let status = data[this.state.receiptId[0]];
-                //console.log(status);
-                this.setState({ status: status.status })
-            })
+        // data.then(response => response.json())
+        //     .then(data1 => {
+        //         const { data } = data1;
+        //         let status = data[this.state.receiptId[0]];
+        //         //console.log(status);
+        //         this.setState({ status: status.status })
+        //     })
 
-        return data;
+        // return data;
     }
 
     handleToken = (notification) => {
+        console.log(notification);
+        if( notification.origin === 'selected' ) {
+            console.log(notification);
+            this.props.navigation.navigate('Notice');
+        }
+        
         this.setState({ notification, });
     };
 }
