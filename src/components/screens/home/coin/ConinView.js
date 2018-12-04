@@ -51,16 +51,23 @@ class CoinView extends Component {
         this.state = {
             coinDatas: [],      // 변경되는 coin data를 갱신해줄 배열 객체
             isLoaded: false,
+            timer: null
         }; // 중요한 개념이다 자식 Component의 data가 변했을 때 state가 변경된 값을 다시 렌더링 해줄 수 있어야 한다. 
     }
 
     componentDidMount() {
         this._getCoinDatas(30);
 
-        setInterval(() => {
+        let interval = setInterval(() => {
             this._getCoinDatas(30);
             //console.log('toggled');
         }, 10000);
+        this.setState({ timer: interval })
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.timer);
+        console.log("CoinView unMount");
     }
 
     _getCoinDatas(limit) {
