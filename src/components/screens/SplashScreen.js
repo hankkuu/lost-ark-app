@@ -6,7 +6,9 @@ import {
     Image,
     AsyncStorage,
     StatusBar,
-    ImageBackground
+    ImageBackground,
+    Platform,
+    Notifications
 } from "react-native";
 import { SplashScreen, Asset } from 'expo';
 import { RkTheme, RkText } from "react-native-ui-kitten";
@@ -45,10 +47,24 @@ class Splash extends Component {
         StatusBar.setHidden(true, 'none');
         this.timer = setInterval(this.updateProgress, delay);
         console.log(`timer: ${this.timer}`);
+        // 위치에 대한 판단은 나중에 바꿀 수 있다 main 에서는 리소스 로딩과 관련된 부분을 체크하고 
+        // splash에서는 app 설정과 관련된 부분을 체크한다 
+        // getUserChannel().then().catch() // API 호출로 가져온다 
+        createUserChannel();
     }
 
     componentWillUnmount() {
         clearInterval(this.timer);
+    }
+
+    createUserChannel = () => {
+        if(Platform.OS === "android") {
+            Notifications.createChannelAndroidAsync('channelName', {
+                name: 'name',
+                priority: 'max',
+                vibrate: [0, 250, 250, 250]
+            })
+        }
     }
 
     updateProgress = () => {
@@ -71,7 +87,7 @@ class Splash extends Component {
         // this.props.navigate.dispatch(toHome);
     }
 
-    //splash 이미지가 스킵되게 구현 하려고 했는데 불필요해 보인다 (실제 테스트 전에는...)
+    //splash 이미지가 스킵되게 구현 하려고 했는데 불필요해 보인다 (실제 Access token 테스트 전에는...)
     //onSplashSkipped = () => {
     //    this.setState({ isSkipped: true});
     //}
@@ -79,7 +95,7 @@ class Splash extends Component {
     appAuthorization = async () => {
         const userToken = await AsyncStorage.getItem("@Session:token");
         console.log(`userToken : ${userToken}`);
-        if (userToken !== null) {
+        if (userToken !== 'pass') {
             //this.setState({ isSkipped: true})
             this.props.navigation.navigate("Main");
         } else {
