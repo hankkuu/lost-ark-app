@@ -12,7 +12,8 @@ import {
 import { createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from '@navigation/MainTabNavigator';
-import { commonHeaderNavigationOptions } from '@navigation/options/CommonHeaderNavigationOptions'
+import { commonHeaderNavigationOptions } from '@navigation/options/CommonHeaderNavigationOptions';
+import { BothHeaderNavigationOptions } from '@navigation/options/itemAuction/BothHeaderNavigationOptions';
 
 //import CashScreen from "../screens/shop/CashScreen";
 //import PurchaseHistoryScreen from '@screen/shop/PurchaseHistoryScreen';
@@ -36,37 +37,38 @@ const navigatorConfig = {
             case 0: 
             {
                 return ({                    
-                    title: navigation.state.routes[index].routeName,
                     header: null
                 });
             }
             case 1:
             {
                 return ({
-                    //...commonHeaderNavigationOptions,
-                    title: navigation.state.routes[index].routeName,
-                    headerLeft:
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => { navigation.navigate('') }}
-                        >
-                            <Text style={{color: 'white', fontSize: 15,}}>관심상품</Text>
-                        </TouchableOpacity>,
-                    headerRight:
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <TouchableOpacity
-                                activeOpacity={0.5}
-                                onPress={() => navigation.navigate('')}
-                            >
-                                <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
-                            </TouchableOpacity>
-                        </View>,
+                    // ...commonHeaderNavigationOptions,
+                    // // header를 null 로 하면 title은 custom header에서 해야 한다 
+                    // title: navigation.state.routes[index].routeName,
+                    header: null
+                    // headerLeft:
+                    //     <TouchableOpacity
+                    //         activeOpacity={0.5}
+                    //         onPress={() => { navigation.navigate('') }}
+                    //     >
+                    //         <Text style={{color: 'white', fontSize: 15,}}>캐시/환불</Text>
+                    //     </TouchableOpacity>,
+                    // headerRight:
+                    //     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    //         <TouchableOpacity
+                    //             activeOpacity={0.5}
+                    //             onPress={() => navigation.navigate('')}
+                    //         >
+                    //             <Text style={{color: 'white', fontSize: 15,}}>구매히스토리</Text>
+                    //         </TouchableOpacity>
+                    //     </View>,
                 });
             }
             case 2:
             {
                 return ({
-                    //...commonHeaderNavigationOptions,
+                    ...commonHeaderNavigationOptions,
                     title: navigation.state.routes[index].routeName,
                     headerLeft:
                         <TouchableOpacity

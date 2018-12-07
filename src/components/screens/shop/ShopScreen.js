@@ -184,19 +184,19 @@ class ShopScreen extends Component {
                     <View style={styles.slide}>
                         <TouchableOpacity style={styles.link}
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }}  source={getAssetByFilename('banner1')} />
+                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner.png")} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.slide}>
                         <TouchableOpacity style={styles.link}
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }}  source={getAssetByFilename('banner2')} />
+                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner2.png")} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.slide}>
                         <TouchableOpacity style={styles.link}
                             onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }}  source={getAssetByFilename('banner3')} />
+                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner3.png")} />
                         </TouchableOpacity>
                     </View>
                 </Swiper>

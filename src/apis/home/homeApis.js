@@ -42,7 +42,7 @@ export const homeApis = async (method, body, signal) => {
   }
 };
 
-// 일단 구현해 놓는다... 
+// 일단 구현해 놓는다... 여기서 뭔가 할게 있을까??? 
 getHttpMethod = (method) => {
     switch(method) {
         case 'GET': 

@@ -129,10 +129,6 @@ class CouponScreen extends Component {
         this.setState({ token });
     }
 
-    static subscription = (notification) => {
-        console.log(notification);
-    }
-
     sendPushNotification(token = this.state.token, title = this.state.title, body = this.state.body) {
         let data = fetch('https://exp.host/--/api/v2/push/send', {
             body: JSON.stringify({

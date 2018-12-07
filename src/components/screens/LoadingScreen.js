@@ -33,6 +33,7 @@ const Loading = (props) => {
 }
 export default Loading;
 
+// 일단 여기서 체크하지는 않는다
 _switchAuth = async (props) => {
     const userToken = await AsyncStorage.getItem("userToken");
     console.log(`user token: ${userToken}`);

@@ -13,8 +13,12 @@ import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-n
 import { colors } from '@util/Colors';
 
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
+import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator';
+import ItemAuctionScreen from '@screen/itemAuction/itemAuctionScreen';
 
-import ItemAuctionScreen from '@screen/mainTab/ItemAuctionScreen';
+import CurrencyAuctionStackNavigator from '@navigation/CurrencyAuctionStackNavigator';
+
+
 import CurrencyAuctionScreen from '@screen/mainTab/CurrencyAuctionScreen';
 import ShopScreen from '@screen/mainTab/ShopScreen';
 import SettingsScreen from '@screen/mainTab/SettingsScreen';
@@ -25,8 +29,8 @@ import SettingsScreen from '@screen/mainTab/SettingsScreen';
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
-    ItemAuction: { screen: ItemAuctionScreen, },
-    CurrencyAution: { screen: CurrencyAuctionScreen },
+    ItemAuction: { screen: ItemAuctionStackNavigator, },
+    //CurrencyAution: { screen: CurrencyAuctionStackNavigator },
     Shop: { screen: ShopScreen },
     SettingStack: { screen: SettingsScreen },
 }, {
@@ -53,12 +57,12 @@ const TabNavigator = createBottomTabNavigator({
                 }
             }
         }),
-        //animationEnabled: true,
-        //swipeEnabled: Platform.select({ android: true, ios: false }),
+        animationEnabled: true,
+        swipeEnabled: Platform.select({ android: true, ios: false }),
         tabBarOptions: {
-            // indicatorStyle: {
-            //     backgroundColor: 'yellow'
-            // },   // TopTap에서 사용
+             indicatorStyle: {
+                 backgroundColor: 'yellow'
+            },   // TopTap에서 사용
             labelStyle: {
                 
             },

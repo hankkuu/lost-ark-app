@@ -8,7 +8,13 @@ const resources = {
     "banner1": require("../../assets/images/banner/shop_banner1.png"),
     "banner2": require("../../assets/images/banner/shop_banner2.png"),
     "banner3": require("../../assets/images/banner/shop_banner3.png"),
-    "pushIcon": require("../../assets/images/push.png")
+    "pushIcon": require("../../assets/images/push.png"),
+    'search': require("../../assets/images/picSearch.png"),
+    'goods1': require('../../assets/images/shop_goods.png'),
+    'goods2': require('../../assets/images/shop_goods2.png'),
+    'goods3': require('../../assets/images/shop_goods3.png'),
+    'goods4': require('../../assets/images/shop_goods4.png'),
+    'goods5': require('../../assets/images/shop_goods5.png'),
 }
 
 export function getAssetByFilename(filename) {

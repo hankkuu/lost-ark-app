@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     Image
 } from "react-native";
+import { Permissions, Notifications } from 'expo';
 import Swiper from 'react-native-swiper';
 
 import Button from '@shared/Button';
@@ -19,6 +20,8 @@ class HomeScreen extends Component {
         this.state = {
             noticeList: [],
             notice: '',
+            token: null,
+            notification: null,
         }
 
         // 이 부분이 이미지로 들어가야 한다 동작하는 swiper는 동적으로 늘어나야 한다 
@@ -31,6 +34,10 @@ class HomeScreen extends Component {
         // ]
         // this.state.noticeList = dummyNotice;
         // this.state.notice = this.state.noticeList[0].text
+    }
+
+    componentDidMount() {
+        this.registerForPushNotification();
     }
 
     render() {
@@ -137,6 +144,42 @@ class HomeScreen extends Component {
             </ScrollView>
         );
     }
+
+    registerForPushNotification = async () => {
+        const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+        if (status !== 'granted') {
+            const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+            if (status !== 'granted') {
+                return;
+            }
+        }
+
+        const token = await Notifications.getExpoPushTokenAsync();
+        this.subscription = Notifications.addListener(this.handleNotification);
+        this.setState({ token });
+        
+        // Push Server 연동은 일단 보류
+        // return fetch(PUSH_REGISTRATION_ENDPOINT, {
+        //     method: 'POST',
+        //     headers: {
+        //       'Accept': 'application/json',
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //       token: {
+        //         value: token,
+        //       },
+        //       user: {
+        //         username: 'warly',
+        //         name: 'Dan Ward'
+        //       },
+        //     }),
+        //   });
+    }
+
+    handleNotification = (notification) => {
+        this.setState({ notification, });
+    };
 }
 export default HomeScreen;
 

@@ -50,7 +50,7 @@ class Splash extends Component {
         // 위치에 대한 판단은 나중에 바꿀 수 있다 main 에서는 리소스 로딩과 관련된 부분을 체크하고 
         // splash에서는 app 설정과 관련된 부분을 체크한다 
         // getUserChannel().then().catch() // API 호출로 가져온다 
-        createUserChannel();
+        // createUserChannel();
     }
 
     componentWillUnmount() {
@@ -95,7 +95,7 @@ class Splash extends Component {
     appAuthorization = async () => {
         const userToken = await AsyncStorage.getItem("@Session:token");
         console.log(`userToken : ${userToken}`);
-        if (userToken !== 'pass') {
+        if (userToken !== 'success') {
             //this.setState({ isSkipped: true})
             this.props.navigation.navigate("Main");
         } else {

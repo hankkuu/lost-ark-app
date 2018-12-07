@@ -10,7 +10,7 @@ import {
     Font,
     Asset
 } from 'expo';
-import { bootstrap } from '../src/config/bootstrap';
+import { bootstrap } from '@kittenDesign/bootstrap';
 import AppSwitchNavigator from '@navigation/AppSwitchNavigator';
 import { getAllofAsset } from '@util/Images';
 import { data } from './test'
