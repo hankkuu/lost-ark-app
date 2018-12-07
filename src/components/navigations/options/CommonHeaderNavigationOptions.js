@@ -16,5 +16,6 @@ export const commonHeaderNavigationOptions = ({ navigation }) => ({
       textAlign: 'center',   //
     },
     headerTintColor: 'red',
+    title: "경매",
   
   })

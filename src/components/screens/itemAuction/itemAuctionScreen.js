@@ -19,11 +19,19 @@ class ItemAuctionScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            test: [ {categoryId: 1, categoryName: '패키지'}, 
-                    {categoryId: 2, categoryName: '부가서비스'}, 
-                    {categoryId: 3, categoryName: '프레스티지'} ]
+            test: [
+                { categoryId: 1, categoryName: '패키지' },
+                { categoryId: 2, categoryName: '부가서비스' },
+                { categoryId: 3, categoryName: '프레스티지' }
+            ],
+            swipe: [
+                { imageName: 'banner1' },
+                { imageName: 'banner2' },
+                { imageName: 'banner3' },
+            ]
         }
     }
+
     render() {
         const collapsableComponent = (
             <View style={styles.notice}>
@@ -31,27 +39,21 @@ class ItemAuctionScreen extends Component {
                     buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
                     nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
                 >
-                    <View style={styles.slide}>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }} source={getAssetByFilename("banner1")} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.slide}>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }} source={getAssetByFilename("banner2")} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.slide}>
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }} source={getAssetByFilename("banner3")} />
-                        </TouchableOpacity>
-                    </View>
+                {this.state.swipe.map( (data, index) => {
+                    const { imageName } = data;
+                        return (
+                            <View key={index} style={styles.slide}>
+                                <TouchableOpacity
+                                    onPress={() => this.props.navigation.navigate('Test1')}>
+                                    <Image style={{ height: "100%", width: "100%", }} source={getAssetByFilename(imageName)} />
+                                </TouchableOpacity>
+                            </View>
+                    )
+                })}
                 </Swiper>
             </View>
         )
+
         return (
             <View style={styles.container}>               
                     <ScrollableTabView
