@@ -1,8 +1,8 @@
-const ROOT_URL = 'http://localhost:3000/api';
+const ROOT_URL = `https://api.coinmarketcap.com/v1/ticker`
 
-export const homeApis = async (method, body, signal) => {
+export const coinApis = async (method, body, signal) => {
   try {
-    // 위에서 signal은 뭔지?? 
+    // 위에서 signal은 뭔지?? - signal?: AbortController['signal']
     // 폼데이터 만들기
     // let formData = new FormData();
     // formData.append('account', this.state.account);
@@ -18,8 +18,10 @@ export const homeApis = async (method, body, signal) => {
     if(methodName === 'GET' || methodName === 'DELETE') {
         body = null;
     }
+
+    var limit = 30;
     
-    let res = await fetch(`${ROOT_URL}/sample`, {
+    let res = await fetch(`${ROOT_URL}/?limit=${limit}`, {
       signal,
       method: methodName,
       headers: new Headers({
