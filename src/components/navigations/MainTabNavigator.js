@@ -1,25 +1,29 @@
 import React from 'react';
-import { Platform, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { 
+    Platform, 
+    StyleSheet, 
+    Text 
+} from 'react-native';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+// 해당 네비게이터도 사용할 수 있다 
+// 라이브러리 설명 : https://reactnavigation.org/docs/en/material-bottom-tab-navigator.html
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+
 import { colors } from '@util/Colors';
 
-import ItemAuctionScreen from '@screen/itemAuction/itemAuctionScreen';
-import ShopScreen from '@screen/mainTab/ShopScreen';
-
-//import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator'; 
-//import SettingStackNavigator from '@navigation/SettingStackNavigator';
-import SettingsScreen from '@screen/mainTab/SettingsScreen';
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
-//import { commonNavigationOptions } from '@navigation/options/CommonNavigationOptions';
-//import HomeScreen from '@screen/home/HomeScreen'
-//import { MainTabNavigationOptions } from '@navigation/options/MainTabNavigationOptions';
+import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator';
+import CurrencyAuctionStackNavigator from '@navigation/CurrencyAuctionStackNavigator';
+import SettingStackNavigator from '@navigation/SettingStackNavigator';
+
+import ShopScreen from '@screen/shop/ShopScreen';
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
-    Auction: { screen: ItemAuctionScreen, },
+    ItemAuction: { screen: ItemAuctionStackNavigator, },
+    CurrencyAution: { screen: CurrencyAuctionStackNavigator },
     Shop: { screen: ShopScreen },
-    SettingStack: { screen: SettingsScreen },
+    SettingStack: { screen: SettingStackNavigator },
 }, {
         navigationOptions: ({ navigation }) => ({
             //...MainTabNavigationOptions,
@@ -31,8 +35,10 @@ const TabNavigator = createBottomTabNavigator({
                 switch (routeName) {
                     case 'Home':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('My')}</Text>;
-                    case 'Auction':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('경매장')}</Text>;
+                    case 'ItemAuction':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('아이템경매')}</Text>;
+                    case 'CurrencyAution':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('화폐경매')}</Text>;
                     case 'Shop':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('상점')}</Text>;
                     case 'SettingStack':
@@ -45,22 +51,17 @@ const TabNavigator = createBottomTabNavigator({
         animationEnabled: true,
         swipeEnabled: Platform.select({ android: true, ios: false }),
         tabBarOptions: {
-            indicatorStyle: {
-                backgroundColor: 'red'
-            },
+            //  indicatorStyle: {
+            //      backgroundColor: 'yellow'
+            // },   // TopTap에서 사용
             labelStyle: {
-                fontSize: 27,
-                //justifyContent: 'center',
-                //alignItems: 'center',
+                
             },
             style: {
                 height: 50,
-                //justifyContent: 'center',
-                backgroundColor: colors.darkBlue,
-                //alignItems: 'center',
+                backgroundColor: colors.darkBlue,                
             },
             tabStyle: {
-                justifyContent: 'center',
                 alignItems: 'center',
             }
         }
@@ -71,28 +72,8 @@ const styles = StyleSheet.create({
     txt: {
         color: 'white',
         fontSize: 15,
-        marginBottom: 15,
+        paddingVertical: 15
         //justifyContent: 'center',
         //alignItems: 'center',
-    },
-    txtSub: {
-        color: 'white',
-        fontSize: 15,
-        fontWeight: '700',
-    },
-    imgHeaderLeft: {
-        marginLeft: 20,
-        width: 28,
-        height: 28,
-        borderRadius: 14,
-        borderColor: 'white',
-        borderWidth: 1,
-    },
-    imgHeaderRight: {
-        width: 24,
-        height: 24,
-        right: 12,
-        tintColor: 'white',
-        marginLeft: 20,
     },
 })

@@ -16,8 +16,8 @@ class SlideItem extends Component {
                     onPress={this.props.onPress}
                 >
                     <View style={{flexDirection: 'column'}}>
-                        <Image style={{width: "90%", height: "70%", marginRight: 20, marginBottom: 10 }} source={this.props.img}></Image>
-                        <Text style={{fontSize: 8}}>{this.props.name}</Text>
+                        <Image style={styles.img} source={this.props.img}></Image>
+                        <Text style={styles.txt}>{this.props.name}</Text>
                     </View>                    
                 </TouchableOpacity>                
             </View>
@@ -35,6 +35,12 @@ const styles = StyleSheet.create({
         height: 100
     },
     img: {
-
+        width: "90%", 
+        height: "70%", 
+        marginRight: 20, 
+        marginBottom: 10 
+    },
+    txt: {
+        fontSize: 8,
     }
 });

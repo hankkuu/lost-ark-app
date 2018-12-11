@@ -22,18 +22,12 @@ class HomeScreen extends Component {
             notice: '',
             token: null,
             notification: null,
+            swipe: [
+                { imageName: 'banner1' },
+                { imageName: 'banner2' },
+                { imageName: 'banner3' },
+            ]
         }
-
-        // 이 부분이 이미지로 들어가야 한다 동작하는 swiper는 동적으로 늘어나야 한다 
-        // API 호출로 알아야 한다
-        // const dummyNotice = [
-        //     { uid: 0, text: '[공지]로스트 아크 앱 출시' },
-        //     { uid: 1, text: '[사과]로스트 아크 버그 발견' },
-        //     { uid: 2, text: '[공지]로스트 아크 이벤트' },
-        //     { uid: 3, text: '[점검]로스트 아크 정기 점검' },
-        // ]
-        // this.state.noticeList = dummyNotice;
-        // this.state.notice = this.state.noticeList[0].text
     }
 
     componentDidMount() {
@@ -50,36 +44,17 @@ class HomeScreen extends Component {
                         buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
                         nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
                     >
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('')}>
-                                <Image 
-                                    style={styles.imgBanner} 
-                                    source={getAssetByFilename("banner1")}
-                                    resizeMethod='resize' // IOS에서는 기본적으로 resizing을 해주지만 Android에서는 그렇지 않다고 함
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('')}>
-                                <Image 
-                                    style={styles.imgBanner} 
-                                    source={getAssetByFilename("banner2")} 
-                                    resizeMethod='resize' // IOS에서는 기본적으로 resizing을 해주지만 Android에서는 그렇지 않다고 함
-                                />
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.slide}>
-                            <TouchableOpacity style={styles.link}
-                                onPress={() => this.props.navigation.navigate('')}>
-                                <Image 
-                                    style={styles.imgBanner} 
-                                    source={getAssetByFilename("banner3")} 
-                                    resizeMethod='resize' // IOS에서는 기본적으로 resizing을 해주지만 Android에서는 그렇지 않다고 함
-                                />
-                            </TouchableOpacity>
-                        </View>
+                        {this.state.swipe.map((data, index) => {
+                            const { imageName } = data;
+                            return (
+                                <View key={index} style={styles.slide}>
+                                    <TouchableOpacity
+                                        onPress={() => this.props.navigation.navigate('')}>
+                                        <Image style={styles.imgBanner} source={getAssetByFilename(imageName)} />
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        })}                       
                     </Swiper>
                 </View>
                 <View>
@@ -157,7 +132,7 @@ class HomeScreen extends Component {
         const token = await Notifications.getExpoPushTokenAsync();
         this.subscription = Notifications.addListener(this.handleNotification);
         this.setState({ token });
-        
+
         // Push Server 연동은 일단 보류
         // return fetch(PUSH_REGISTRATION_ENDPOINT, {
         //     method: 'POST',
@@ -193,10 +168,9 @@ const styles = StyleSheet.create({
     },
     notice: {
         flexDirection: "row",
-        justifyContent: "space-around",
+        //justifyContent: "space-around",
         height: 180,                        // 감싸고 있는 View를 기준으로 잡는다
-
-        alignItems: 'center',
+        //alignItems: 'center',
     },
     gridSpace: {
         flexDirection: 'row',
@@ -233,10 +207,8 @@ const styles = StyleSheet.create({
         //height: 180
     },
     slide: {
-
-    },
-    link: {
-
+        height: "100%", 
+        width: "100%",
     },
     imgBanner: {
         height: "100%", 

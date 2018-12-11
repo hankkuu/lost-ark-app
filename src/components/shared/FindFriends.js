@@ -10,7 +10,7 @@ import {
   RkTheme,
 } from 'react-native-ui-kitten';
 import PropTypes from 'prop-types';
-import { FontAwesome } from '@util/Icons';
+import { FontAwesome } from '@kittenDesign/icons';
 
 export class FindFriends extends React.Component {
   static propTypes = {

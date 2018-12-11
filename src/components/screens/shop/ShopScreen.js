@@ -14,13 +14,12 @@ import {
     TouchableHighlight,
     Picker
 } from "react-native";
-import { colors } from '@util/Colors'
-
 import Swiper from "react-native-swiper";
 import { ScrollableTabView, ScrollableTabBar, } from "@valdio/react-native-scrollable-tabview";
 import GoodsItem from "@item/GoodsItem";
-import { getAssetByFilename } from '@util/Images'; 
 
+import { getAssetByFilename } from '@util/Images';
+import { colors } from '@util/Colors'
 
 class List extends Component {
     constructor(props) {
@@ -76,7 +75,7 @@ class List extends Component {
                 <View style={styles.selector}>
                     <Picker
                         selectedValue={this.state.subCategory}
-                        style={{ height: 50, width: "25%" }}
+                        style={styles.picker}
                         onValueChange={(itemValue, itemIndex) => this.test(itemValue)}
                     >
                         {this.state.subCategories.map((data, index) => {
@@ -152,13 +151,9 @@ class List extends Component {
     }
     onItemClick = (item) => {
         const { items } = this.state;
-        //<DetailListScreen />
-        //console.log(this.props.navigation);
         this.props.navigation.navigate('GoodsDetail', { item: item });
     }
 }
-
-
 
 class ShopScreen extends Component {
     constructor(props) {
@@ -166,7 +161,21 @@ class ShopScreen extends Component {
         this.state = {
             searchTxt: '',
             scrollY: new Animated.Value(0),
-            refreshing: false
+            refreshing: false,
+            swipe: [
+                { imageName: 'banner1' },
+                { imageName: 'banner2' },
+                { imageName: 'banner3' },
+            ],
+            tabLabel: [
+                { labelName: '패키지' },
+                { labelName: '부가서비스' },
+                { labelName: '프레스티지' },
+                { labelName: '임시다' },
+                { labelName: '임시다' },
+                { labelName: '임시다' },
+                { labelName: '임시다' },
+            ]
         }
     }
 
@@ -181,24 +190,18 @@ class ShopScreen extends Component {
                     buttonWrapperStyle={{}} paginationStyle={{ bottom: 5 }}
                     nextButton={<Text>&gt;</Text>} prevButton={<Text>&lt;</Text>}
                 >
-                    <View style={styles.slide}>
-                        <TouchableOpacity style={styles.link}
-                            onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner.png")} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.slide}>
-                        <TouchableOpacity style={styles.link}
-                            onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner2.png")} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.slide}>
-                        <TouchableOpacity style={styles.link}
-                            onPress={() => this.props.navigation.navigate('Test1')}>
-                            <Image style={{ height: "100%", width: "100%", }}  source={require("../../../../assets/shop_banner3.png")} />
-                        </TouchableOpacity>
-                    </View>
+                    {this.state.swipe.map((data, index) => {
+                        const { imageName } = data;
+                        return (
+                            <View key={index} style={styles.slide}>
+                                <TouchableOpacity
+                                    style={styles.link}
+                                    onPress={() => this.props.navigation.navigate('')}>
+                                    <Image style={{ height: "100%", width: "100%", }} source={getAssetByFilename(imageName)} />
+                                </TouchableOpacity>
+                            </View>
+                        )
+                    })}
                 </Swiper>
             </View>
         )
@@ -212,15 +215,17 @@ class ShopScreen extends Component {
                 locked={true}
                 showsHorizontalScrollIndicator={false}
                 collapsableBar={collapsableComponent} //이게 동작이 안된다.... // 해결 : ScrollableTabView이 가장 부모로 있으면 된다
-                //pullToRefresh={this._onRefresh}
-                //onChangeTab={this.handleChangeTab}
+            //pullToRefresh={this._onRefresh}
+            //onChangeTab={this.handleChangeTab}
             >
-                <List tabLabel='패키지' navigation={this.props.navigation} />
-                <List tabLabel='부가서비스' navigation={this.props.navigation} />
-                <List tabLabel='프레스티지' navigation={this.props.navigation} />
-                <List tabLabel='임시다' navigation={this.props.navigation} />
-                <List tabLabel='임시다' navigation={this.props.navigation} />
-                <List tabLabel='임시다' navigation={this.props.navigation} />
+                {
+                    this.state.tabLabel.map((data, index) => {
+                        const { labelName } = data;
+                        return (
+                            <List key={index} tabLabel={labelName} navigation={this.props.navigation} />
+                        )
+                    })
+                }
             </ScrollableTabView>
 
         );
@@ -233,7 +238,7 @@ class ShopScreen extends Component {
     }
 
     renderTab = (name, page, isTabActive, onPressHandler, onLayoutHandler) => {
-        //console.log(name, page, isTabActive, onPressHandler, onLayoutHandler);
+        // console.log(name, page, isTabActive, onPressHandler, onLayoutHandler);
         // 여기서 리스트를 갱신하자 
         // if(isTabActive === true) {
         //     console.log("activeTab: " + page);
@@ -245,7 +250,7 @@ class ShopScreen extends Component {
                 key={`${name}_${page}`}
                 onPress={() => onPressHandler(page)}
                 onLayout={onLayoutHandler}
-                style={{ flex: 1, width: 80, alignItems: 'center', justifyContent: 'center', backgroundColor:"#aaaaaa"  }}
+                style={{ flex: 1, width: 80, alignItems: 'center', justifyContent: 'center', backgroundColor: "#aaaaaa" }}
                 underlayColor="#aaaaaa"  // 이색은 뭐냐??
             >
                 <Text>{name}</Text>
@@ -256,14 +261,15 @@ class ShopScreen extends Component {
 }
 export default ShopScreen;
 
-
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    picker: {
+        height: 50, 
+        width: "25%",
     },
     notice: {
         flexDirection: "row",

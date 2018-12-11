@@ -10,19 +10,19 @@ class AlarmItem extends Component {
     
     render() {
         return (
-            <View style={styles.container}>
-                <TouchableOpacity
-                    onPress={this.props.onPress}
-                    style={styles.item}
-                >
+            <TouchableOpacity
+                onPress={this.props.onPress}
+                style={styles.item}
+            >
+                <View style={styles.container}>
                     <Text style={styles.img}>{this.props.item.subject}</Text>
                     <Text style={styles.txt}>{this.props.item.content}</Text>
-                </TouchableOpacity>             
-            </View>
+                </View>
+            </TouchableOpacity>    
         );
     }
     test = () => {
-        console.log("dfsdf")
+        console.log("test-test")
     }
 }
 export default AlarmItem;
@@ -30,26 +30,25 @@ export default AlarmItem;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        //alignItems: 'center',
-        //justifyContent: 'center'
-        //alignSelf: 'stretch',
+        flexDirection:'row',
+        borderBottomWidth:1, 
+        borderColor:'#0002',
+        alignItems: 'center',
     },
     item: {
         width: '100%',
-        flexDirection:'row',
+        height: 50,
+        //flexDirection:'row',
         //paddingHorizontal:20, 
-        borderBottomWidth:1, 
-        borderColor:'#0002'
     },
     img : {
-        alignSelf:'center', 
         //resizeMode:'cover',
         width:80, 
-        height:50, 
-        //borderRadius:25
+        marginLeft: 10,
+        //borderRadius:25,
     },
     txt: {
-        alignSelf:'center', 
+        //alignSelf:'center', 
         marginLeft:10
     }
 });

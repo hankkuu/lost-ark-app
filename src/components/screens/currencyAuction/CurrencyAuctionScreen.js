@@ -16,7 +16,7 @@ import SlideItem from "@item/SlideItem";
 import { screenWidth } from '@util/Styles';
 import { getAssetByFilename } from '@util/Images'; 
 
-class ItemAuctionScreen extends Component {
+class CurrencyAuctionScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -90,7 +90,7 @@ class ItemAuctionScreen extends Component {
         )
     }
 }
-export default ItemAuctionScreen;
+export default CurrencyAuctionScreen;
 
 export class ScrollList extends Component {
     constructor(props) {
@@ -101,11 +101,11 @@ export class ScrollList extends Component {
             items3: [],
             items4: [],
             items5: [],
-        }        
+        }
+        
     }
 
     componentDidMount() {
-
         const dummy = [
             { uid: 0, tag: 'New', img: getAssetByFilename('goods1'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
             { uid: 1, tag: '인기', img: getAssetByFilename('goods1'), displayName: '베아트리스의 축복 3일', cost: '45000원' },
@@ -344,9 +344,14 @@ const styles = StyleSheet.create({
     },
     notice: {
         flexDirection: "row",
+        //justifyContent: "space-around",
         height: 80,
+        //alignItems: 'center',
     },
     slide: {
+        //flex: 1,
+        //justifyContent: 'center',
+        //alignItems: 'center',
         width: "100%",
         height: "100%"
     },

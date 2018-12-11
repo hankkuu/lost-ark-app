@@ -24,7 +24,7 @@ export const BothHeaderNavigationOptions = ({ navigation }) => ({
     },
     headerTintColor: 'red',
 
-    title: "아이템경매",
+    title: "화폐경매",
     headerLeft:
         <TouchableOpacity
             activeOpacity={0.5}
@@ -42,6 +42,7 @@ export const BothHeaderNavigationOptions = ({ navigation }) => ({
             </TouchableOpacity>
         </View>,
 })
+
 
 const styles = StyleSheet.create({
     leftWrap: {
