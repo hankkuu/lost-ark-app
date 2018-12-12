@@ -9,8 +9,8 @@ import { BothHeaderNavigationOptions } from '@navigation/options/setting/BothHea
 import SettingsScreen2 from '@screen/setting/SettingsScreen2';
 import SettingsScreen from '@screen/setting/SettingsScreen';
 
-import NoticeScreen from '@screen/setting/NoticeScreen';
-import SystemAlarmScreen from '@screen/setting/SystemAlarmScreen';
+import NoticeScreen from '@screen/setting/header/NoticeScreen';
+import SystemAlarmScreen from '@screen/setting/header/SystemAlarmScreen';
 
 import Setting5 from '@screen/setting/Setting5';
 import Setting6 from '@screen/setting/Setting6';
