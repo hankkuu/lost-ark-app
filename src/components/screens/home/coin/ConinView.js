@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import CoinDetail from './CoinDetail';
 import { getCoinIconUri } from "./Constants";
-import { coinApis } from '../../../../apis/home/coinApi';
+import { coinApis } from '@api/home/coinApis';
 
 const sampleData = [
     {
@@ -75,28 +75,31 @@ class CoinView extends Component {
         this.setState({
             isLoaded: false,
         });
-        let json = coinApis('get', null, null);
-        console.log(json);
 
-        if (json != null) {
-            let date = new Date();
-            let now = date.toLocaleString();
-
-            //console.log(this.props.refreshDate);
-            if (this.props.refreshDate != null) {
-                this.props.refreshDate(now);        // 부모 component의 state 값에 보낼 수 있다 
-            }
-
-            this.setState({
-                // data를 setState를 이용해 재설정 되고 state 변수는 새로 갱신되는 것이다 
-                // 렌더안에서 props의 변경인 인지해서 변경하기 위한 것이다 
-                // Prop에서 state 변경만 인식해서 다시 렌더하기 위해 
-                coinDatas: json,
-                isLoaded: true,
-            })
-
-        }
+        const addUrl = `/?limit=${limit}`               // 추가로 만들 url을 셋팅해서 보내야 할듯   
+        let result = coinApis('GET', addUrl, null);
         
+        if(result !== null) {
+            result.then( data => {    
+                if (data !== null) {
+                    let date = new Date();
+                    let now = date.toLocaleString();
+        
+                    //console.log(this.props.refreshDate);
+                    if (this.props.refreshDate != null) {
+                        this.props.refreshDate(now);        // 부모 component의 state 값에 보낼 수 있다 
+                    }
+                    console.log("여기를 오는 것이냐");
+                    this.setState({
+                        // data를 setState를 이용해 재설정 되고 state 변수는 새로 갱신되는 것이다 
+                        // 렌더안에서 props의 변경을 인지해서 변경하기 위한 것이다 
+                        // Prop에서 state 변경만 인식해서 다시 렌더하기 위해 
+                        coinDatas: data,
+                        isLoaded: true,
+                    })
+                }       
+            })
+        }
 
         // 외부에서 API 호출로 데이터 겟
         //json 변환

@@ -1,8 +1,8 @@
 const ROOT_URL = `https://api.coinmarketcap.com/v1/ticker`
 
-export const coinApis = async (method, body, signal) => {
+export const coinApis = async (method, url, signal) => {
   try {
-    // 위에서 signal은 뭔지?? - signal?: AbortController['signal']
+    // 위에서 signal은 뭔지??  - signal?: AbortController['signal']
     // 폼데이터 만들기
     // let formData = new FormData();
     // formData.append('account', this.state.account);
@@ -15,32 +15,27 @@ export const coinApis = async (method, body, signal) => {
 
     // HTTP Method 가 여러개이기 때문에 각각 만들지... 
     const methodName = getHttpMethod(method);
-    if(methodName === 'GET' || methodName === 'DELETE') {
-        body = null;
+    if(methodName !== 'GET' && methodName !== 'DELETE') {
+        // Body를 취급하지 않는 메소드는 취급하지 않는다
+        console.log("don't match HTTP method")
+        return null;
     }
-
-    var limit = 30;
+    var result = null;
     
-    let res = await fetch(`${ROOT_URL}/?limit=${limit}`, {
-      signal,
-      method: methodName,
-      headers: new Headers({
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }),
-      body: JSON.stringify(body),
-      //body: formData
-    });
+    await fetch(`${ROOT_URL}` + url)
+    .then(response => response.json() )
+    .then(data => {
+        result = data;
+    })
+    .catch(error => {
+      console.log(error);
+      throw error;
+    })
 
-    if (res) {
-      res = JSON.parse(res._bodyInit);
-      return res;
-    }
-
-    return null;
-
+    return result;
+    
   } catch (err) {
-    console.log('googleLogin err');
+    console.log('!!! err');
     console.log(err);
     throw new Error(err);
   }

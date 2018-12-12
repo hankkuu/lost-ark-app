@@ -16,6 +16,7 @@ module.exports = function (api) {
         "@kittenDesign": "./src/config",
         "@item": "./src/components/items",
         "@expo": "./node_modules/@expo",
+        "@api": "./src/apis",
       }
     }]
   ];

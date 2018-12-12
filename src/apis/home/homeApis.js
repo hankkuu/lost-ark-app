@@ -15,8 +15,8 @@ export const homeApis = async (method, body, signal) => {
 
     // HTTP Method 가 여러개이기 때문에 각각 만들지... 
     const methodName = getHttpMethod(method);
-    if(methodName === 'GET' || methodName === 'DELETE') {
-        body = null;
+    if(methodName !== 'POST' && methodName !== 'PATCH') {
+        return null;
     }
     
     let res = await fetch(`${ROOT_URL}/sample`, {
@@ -38,7 +38,7 @@ export const homeApis = async (method, body, signal) => {
     return null;
 
   } catch (err) {
-    console.log('googleLogin err');
+    console.log('!!! err');
     console.log(err);
     throw new Error(err);
   }
