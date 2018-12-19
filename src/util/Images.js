@@ -20,6 +20,7 @@ const resources = {
     'settings3': require('../../assets/images/setting3.png'),
     'settings4': require('../../assets/images/setting4.png'),
     'settings5': require('../../assets/images/setting5.png'),
+    'stoveAuth': require('../../assets/images/stoveAuth.png'),
 }
 
 export function getAssetByFilename(filename) {

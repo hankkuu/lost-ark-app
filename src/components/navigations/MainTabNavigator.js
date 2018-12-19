@@ -18,6 +18,11 @@ import SettingStackNavigator from '@navigation/SettingStackNavigator';
 
 import ShopScreen from '@screen/shop/ShopScreen';
 
+import {
+    RkStyleSheet,
+    RkTheme,
+} from 'react-native-ui-kitten';
+
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
     ItemAuction: { screen: ItemAuctionStackNavigator, },
@@ -34,7 +39,7 @@ const TabNavigator = createBottomTabNavigator({
                 const { routeName } = navigation.state;
                 switch (routeName) {
                     case 'Home':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('My')}</Text>;
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('홈')}</Text>;
                     case 'ItemAuction':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('아이템경매')}</Text>;
                     case 'CurrencyAution':
@@ -59,7 +64,10 @@ const TabNavigator = createBottomTabNavigator({
             },
             style: {
                 height: 50,
-                backgroundColor: colors.darkBlue,                
+                backgroundColor: RkTheme.current.colors.screen.base,           
+                borderTopColor: 'gray',
+                borderTopWidth: 1,
+                elevation: 0
             },
             tabStyle: {
                 alignItems: 'center',
@@ -68,12 +76,12 @@ const TabNavigator = createBottomTabNavigator({
     })
 export default TabNavigator;
 
-const styles = StyleSheet.create({
+const styles = RkStyleSheet.create(theme => ({
     txt: {
-        color: 'white',
+        color: 'black',
         fontSize: 15,
         paddingVertical: 15
         //justifyContent: 'center',
         //alignItems: 'center',
     },
-})
+}))
