@@ -96,6 +96,26 @@ export const bootstrap = () => {
     fontSize: theme => theme.fonts.sizes.h6,
     fontFamily: theme => theme.fonts.family.bold,
   });
+  RkTheme.setType('RkText', 'header7', {
+    fontSize: theme => theme.fonts.sizes.h7,
+    fontFamily: theme => theme.fonts.family.bold,
+  });
+  RkTheme.setType('RkText', 'header8', {
+    fontSize: theme => theme.fonts.sizes.h8,
+    fontFamily: theme => theme.fonts.family.bold,
+  });
+  RkTheme.setType('RkText', 'header9', {
+    fontSize: theme => theme.fonts.sizes.h9,
+    fontFamily: theme => theme.fonts.family.bold,
+  });
+  RkTheme.setType('RkText', 'header10', {
+    fontSize: theme => theme.fonts.sizes.h10,
+    fontFamily: theme => theme.fonts.family.bold,
+  });
+  RkTheme.setType('RkText', 'header11', {
+    fontSize: theme => theme.fonts.sizes.h11,
+    fontFamily: theme => theme.fonts.family.bold,
+  });
   RkTheme.setType('RkText', 'secondary1', {
     fontSize: theme => theme.fonts.sizes.s1,
     fontFamily: theme => theme.fonts.family.light,

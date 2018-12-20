@@ -21,6 +21,9 @@ const resources = {
     'settings4': require('../../assets/images/setting4.png'),
     'settings5': require('../../assets/images/setting5.png'),
     'stoveAuth': require('../../assets/images/stoveAuth.png'),
+    'alarm': require('../../assets/images/alarm.png'),
+    'vod1': require('../../assets/images/vod1.png'),
+    'vod2': require('../../assets/images/vod2.png'),
 }
 
 export function getAssetByFilename(filename) {

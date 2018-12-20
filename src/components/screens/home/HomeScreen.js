@@ -103,47 +103,49 @@ class HomeScreen extends Component {
                         })}
                     </Swiper>
                 </View>
-                <View style={{ borderBottomColor: 'gray', borderBottomWidth: 1, height: 60, backgroundColor: RkTheme.current.colors.screen.base}}>
-                    <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                        <Text>소울워커</Text>
-                        <Text>[팬아트 공모전] 세명의 크리스마스</Text>
-                    </View>
-                </View>
-                <View style={{ borderBottomColor: 'gray', borderBottomWidth: 1, height: 60, backgroundColor: RkTheme.current.colors.screen.base}}>
-                    <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                        <Text>LOST ARK</Text>
-                        <Text>2티어 베르투스 너무너무너무너무 쉽게잡기</Text>
-                    </View>
-                </View>
-                <View style={{ borderBottomColor: 'gray', borderBottomWidth: 1, height: 60, backgroundColor: RkTheme.current.colors.screen.base}}>
-                    <View style={{alignItems: 'center', justifyContent: 'center'}}>
-                        <Text>LOST ARK</Text>
-                        <Text>자케짤</Text>
-                    </View>
-                </View>
-
-                <View style={{width: '100%',}}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', backgroundColor: RkTheme.current.colors.screen.base }}>
-                        <View style={{ margin: 10, width: '50%'}}>
-                            <Text>사진</Text>
-                            <Text>Lost Ark</Text>
-                            <Text>2티어 베르투스 너무너무너무너무 쉽게잡기</Text>
+                <View style={{ width: '100%', backgroundColor: RkTheme.current.colors.screen.base}}>
+                    <View style={{ justifyContent: 'flex-start', height: 60, backgroundColor: RkTheme.current.colors.screen.base }}>
+                        <View style={{ alignContent: 'center', justifyContent: 'center', marginTop: 10, marginLeft: 10, marginRight: 10, borderBottomColor: 'gray', borderBottomWidth: 1, }}>
+                            <RkText rkType='header10'>테일즈러너</RkText>
+                            <RkText rkType='header9' style={{ marginBottom: 10 }}>[팬아트 공모전] 세명의 크리스마스</RkText>
                         </View>
-                        <View style={{ margin: 10, width: '50%'}}>
-                            <Text>사진</Text>
-                            <Text>Lost Ark</Text>
-                            <Text>2티어 베르투스 너무너무너무너무 쉽게잡기</Text>
+                    </View>
+                    <View style={{ justifyContent: 'flex-start', height: 60, backgroundColor: RkTheme.current.colors.screen.base }}>
+                        <View style={{ alignContent: 'center', justifyContent: 'center', marginTop: 10, marginLeft: 10, marginRight: 10, borderBottomColor: 'gray', borderBottomWidth: 1, }}>
+                            <RkText rkType='header10'>LOST ARK</RkText>
+                            <RkText rkType='header9' style={{ marginBottom: 10 }}>2티어 베르투스 너무너무너무너무 쉽게잡기</RkText>
+                        </View>
+                    </View>
+                    <View style={{ justifyContent: 'flex-start', height: 60, backgroundColor: RkTheme.current.colors.screen.base }}>
+                        <View style={{ alignContent: 'center', justifyContent: 'center', marginTop: 10, marginLeft: 10, marginRight: 10, borderBottomColor: 'gray', borderBottomWidth: 1, }}>
+                            <RkText rkType='header10'>LOST ARK</RkText>
+                            <RkText rkType='header9' style={{ marginBottom: 10 }}>자케짤</RkText>
+                        </View>
+                    </View>
+                    <View style={{padding: 10}}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
+                            <View style={{ width: '50%', height: 180 }}>
+                                <Image style={{width: '100%', height: '60%'}} source={getAssetByFilename('vod1')}></Image>
+                                <RkText rkType='header10' style={{marginTop: 10}}>LOST ARK</RkText>
+                                <RkText rkType='header9' style={{marginTop: 4}}>2티어 베르투스 너무너무너무너무 쉽게잡기</RkText>
+                            </View>
+                            <View style={{ width: '50%', height: 180 }}>
+                                <Image style={{width: '100%', height: '60%'}} source={getAssetByFilename('vod2')}></Image>
+                                <RkText rkType='header10' style={{marginTop: 10}}>LOST ARK</RkText>
+                                <RkText rkType='header9' style={{marginTop: 4}}>2티어 베르투스 너무너무너무너무 쉽게잡기</RkText>
+                            </View>
                         </View>
                     </View>
                 </View>
 
                 <View style={{ marginTop: 30, backgroundColor: RkTheme.current.colors.screen.base }}>
                     <View style={{ backgroundColor: 'blue', flexDirection: "row", justifyContent: 'space-between'}}>
-                        <Text>STOVE 추천 태그</Text>
-                        <Text>모두보기</Text>
-                        <TouchableOpacity> 
-                            <Text>>></Text>
-                        </TouchableOpacity>
+                        <RkText rkType='header6'>STOVE 추천 태그</RkText>
+                        <View style={{justifyContent:'flex-end', }}>
+                            <TouchableOpacity>
+                                <Text>모두보기 >></Text>                                
+                            </TouchableOpacity>
+                        </View>
                     </View>
                     <ScrollView
                         horizontal={true}
@@ -156,7 +158,7 @@ class HomeScreen extends Component {
                             bottom: 0,
                             right: 30,
                         }}
-                        style={{ height: 60 }}
+                        style={{ height: 50 }}
                     >
                         {this.state.items.map((data, index) => {
                             const { displayName } = data;
@@ -425,7 +427,7 @@ const styles = RkStyleSheet.create(theme => ({
     notice: {
         flexDirection: "row",
         //justifyContent: "space-around",
-        height: 200,                        // 감싸고 있는 View를 기준으로 잡는다
+        height: 180,                        // 감싸고 있는 View를 기준으로 잡는다
         //alignItems: 'center',
         borderBottomWidth: 5,
         borderBottomColor: 'gray',
