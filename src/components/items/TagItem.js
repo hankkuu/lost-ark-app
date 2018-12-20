@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        width: 100,
-        height: 100
+        //width: 100,
+        //height: 100
     },
     img: {
         width: "90%", 
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         marginBottom: 10 
     },
     txt: {
-        fontSize: 8,
+        fontSize: 18,
+        marginHorizontal: 8,
     }
 });

@@ -52,20 +52,20 @@ class SettingsScreen2 extends Component {
             <ScrollView style={styles.container}>
                 <View style={styles.section}>
                     <View style={[styles.row, styles.heading]}>
-                        <RkText rkType='primary header6'>프로필</RkText>
+                        <RkText rkType='primary header8'>프로필</RkText>
                     </View>
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.rowButton}>
-                            <RkText rkType='header6'>프로필 수정</RkText>
+                            <RkText rkType='header8'>프로필 수정</RkText>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.rowButton}>
-                            <RkText rkType='header6'>패스워드 수정</RkText>
+                            <RkText rkType='header8'>패스워드 수정</RkText>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.row}>
-                        <RkText rkType='header6'>Push Notification</RkText>
+                        <RkText rkType='header8'>Push Notification</RkText>
                         <RkSwitch
                             style={styles.switch}
                             value={this.state.sendPush}
@@ -74,7 +74,7 @@ class SettingsScreen2 extends Component {
                         ></RkSwitch>
                     </View>
                     <View style={styles.row}>
-                        <RkText rkType='header6'>Push Notification2</RkText>
+                        <RkText rkType='header8'>Push Notification2</RkText>
                         <RkSwitch
                             style={styles.switch}
                             value={this.state.shouldRefresh}
@@ -85,7 +85,7 @@ class SettingsScreen2 extends Component {
                 </View>
                 <View style={styles.section}>
                     <View style={[styles.row, styles.heading]}>
-                        <RkText rkType='primary header6'>SNS 접속 계정</RkText>
+                        <RkText rkType='primary header8'>SNS 접속 계정</RkText>
                     </View>
                     <View style={styles.row}>
                         <FindFriends
@@ -117,26 +117,26 @@ class SettingsScreen2 extends Component {
                 </View>
                 <View style={styles.section}>
                     <View style={[styles.row, styles.heading]}>
-                        <RkText rkType='primary header6'>SUPPORT</RkText>
+                        <RkText rkType='primary header8'>SUPPORT</RkText>
                     </View>
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.rowButton}>
-                            <RkText rkType='header6'>Help</RkText>
+                            <RkText rkType='header8'>Help</RkText>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.rowButton}>
-                            <RkText rkType='header6'>PC방 찾기</RkText>
+                            <RkText rkType='header8'>PC방 찾기</RkText>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.rowButton}>
-                            <RkText rkType='header6'>알림</RkText>
+                            <RkText rkType='header8'>알림</RkText>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.row}>
                         <TouchableOpacity style={styles.rowButton}>
-                            <RkText rkType='header6'>Logout</RkText>
+                            <RkText rkType='header8'>Logout</RkText>
                         </TouchableOpacity>
                     </View>
                 </View>

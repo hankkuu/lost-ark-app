@@ -7,21 +7,25 @@ import {
 } from "react-native";
 
 import { colors } from '@util/Colors';
+import {
+    RkStyleSheet,
+    RkTheme,
+} from 'react-native-ui-kitten';
 
 export const BothHeaderNavigationOptions = ({ navigation }) => ({
     headerBackTitle: null,
     headerStyle: {
-        backgroundColor: colors.blueyGray,
-        borderBottomColor: 'red',
+        backgroundColor: RkTheme.current.colors.screen.base,
+        borderBottomColor: 'gray',
         borderBottomWidth: 1,
         elevation: 0,
         //
     },
     headerTitleStyle: {
         flex: 1,
-        color: 'white',
+        color: 'black',
         textAlign: 'center',   //
-        alignSelf: 'center'
+        //alignSelf: 'center'
     },
     headerTintColor: 'red',
     
@@ -50,12 +54,12 @@ export const BothHeaderNavigationOptions = ({ navigation }) => ({
 })
 
 
-const styles = StyleSheet.create({
+const styles = RkStyleSheet.create(theme => ({
     leftWrap: {
         flexDirection: 'row'
     },
     txt: {
-        color: 'white',
+        color: 'black',
         fontSize: 15,
         marginHorizontal: 10,
     },
@@ -80,4 +84,4 @@ const styles = StyleSheet.create({
         tintColor: 'white',
         marginLeft: 20,
     },
-});
+}));

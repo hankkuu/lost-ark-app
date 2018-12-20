@@ -15,8 +15,10 @@ import SystemAlarmScreen from '@screen/setting/header/SystemAlarmScreen';
 import Setting5 from '@screen/setting/Setting5';
 import Setting6 from '@screen/setting/Setting6';
 
+import { colors } from '@util/Colors';
+
 const routeConfig = {
-    Main: { screen: SettingsScreen, navigationOptions: BothHeaderNavigationOptions },
+    Main: { screen: SettingsScreen2, navigationOptions: BothHeaderNavigationOptions },
 
     Notice: { screen: NoticeScreen },
     SystemAlarm: { screen: SystemAlarmScreen },
@@ -24,7 +26,7 @@ const routeConfig = {
     Setting5: { screen: Setting5 },
     Setting6: { screen: Setting6 },
 
-    Settings: { screen: SettingsScreen2, navigationOptions: { 
+    Settings: { screen: SettingsScreen, navigationOptions: { 
         title: 'Settings'.toUpperCase(),  
         headerTitleStyle: {
             flex: 1,
@@ -32,7 +34,15 @@ const routeConfig = {
             textAlign: 'center',   //
             alignSelf: 'center',
             marginLeft: -30,
-        }}},
+        },
+        headerStyle: {
+            backgroundColor: colors.blueyGray,
+            borderBottomColor: 'red',
+            borderBottomWidth: 1,
+            elevation: 0,
+            //
+        },
+    }},
 }
 
 const navigatorConfig = {

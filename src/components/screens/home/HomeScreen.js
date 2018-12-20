@@ -139,7 +139,7 @@ class HomeScreen extends Component {
                 </View>
 
                 <View style={{ marginTop: 30, backgroundColor: RkTheme.current.colors.screen.base }}>
-                    <View style={{ backgroundColor: 'blue', flexDirection: "row", justifyContent: 'space-between'}}>
+                    <View style={{ backgroundColor: 'lightblue', flexDirection: "row", justifyContent: 'space-between'}}>
                         <RkText rkType='header6'>STOVE 추천 태그</RkText>
                         <View style={{justifyContent:'flex-end', }}>
                             <TouchableOpacity>
