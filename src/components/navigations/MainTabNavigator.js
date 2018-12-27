@@ -12,6 +12,8 @@ import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-n
 import { colors } from '@util/Colors';
 
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
+import MenuScreen from '@screen/menu/MenuScreen'
+
 import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator';
 import CurrencyAuctionStackNavigator from '@navigation/CurrencyAuctionStackNavigator';
 import SettingStackNavigator from '@navigation/SettingStackNavigator';
@@ -25,7 +27,10 @@ import {
 
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
-    ItemAuction: { screen: ItemAuctionStackNavigator, },
+
+    Menu: { screen: MenuScreen },
+
+    //ItemAuction: { screen: ItemAuctionStackNavigator, },
     CurrencyAution: { screen: CurrencyAuctionStackNavigator },
     Shop: { screen: ShopScreen },
     SettingStack: { screen: SettingStackNavigator },
@@ -40,8 +45,8 @@ const TabNavigator = createBottomTabNavigator({
                 switch (routeName) {
                     case 'Home':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('홈')}</Text>;
-                    case 'ItemAuction':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('아이템경매')}</Text>;
+                    case 'Menu':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Grid')}</Text>;
                     case 'CurrencyAution':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('화폐경매')}</Text>;
                     case 'Shop':

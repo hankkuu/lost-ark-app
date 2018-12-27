@@ -43,10 +43,11 @@ const navigatorConfig = {
             case 1:
             {
                 return ({
-                    // ...commonHeaderNavigationOptions,
+                    ...commonHeaderNavigationOptions,
+                    
                     // // header를 null 로 하면 title은 custom header에서 해야 한다 
                     // title: navigation.state.routes[index].routeName,
-                    header: null                    
+                    //header: null                    
                 });
             }
             case 2:
