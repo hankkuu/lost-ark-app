@@ -12,7 +12,7 @@ import {
 import { createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from '@navigation/MainTabNavigator';
-import { commonHeaderNavigationOptions } from '@navigation/options/CommonHeaderNavigationOptions';
+import { CommonHeaderNavigationOptions } from '@navigation/options/CommonHeaderNavigationOptions';
 
 import CashScreen from "@screen/shop/header/CashScreen";
 import PurchaseHistoryScreen from '@screen/shop/header/PurchaseHistoryScreen';
@@ -43,11 +43,10 @@ const navigatorConfig = {
             case 1:
             {
                 return ({
-                    ...commonHeaderNavigationOptions,
-                    
+                    //...CommonHeaderNavigationOptions,
+                    //title: navigation.state.routes[index].routeName,
                     // // header를 null 로 하면 title은 custom header에서 해야 한다 
-                    // title: navigation.state.routes[index].routeName,
-                    //header: null                    
+                    header: null                    
                 });
             }
             case 2:
@@ -59,7 +58,8 @@ const navigatorConfig = {
             case 3:
             {
                 return ({
-                    ...commonHeaderNavigationOptions,
+                    ...CommonHeaderNavigationOptions,
+                    title: navigation.state.routes[index].routeName,
                     headerLeft:
                         <TouchableOpacity
                             activeOpacity={0.5}

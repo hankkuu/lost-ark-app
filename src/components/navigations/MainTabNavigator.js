@@ -12,7 +12,8 @@ import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-n
 import { colors } from '@util/Colors';
 
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
-import MenuScreen from '@screen/menu/MenuScreen'
+import MenuStackNavigator from '@navigation/MenuStackNavigator';
+//import MenuScreen from '@screen/menu/MenuScreen'
 
 import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator';
 import CurrencyAuctionStackNavigator from '@navigation/CurrencyAuctionStackNavigator';
@@ -28,7 +29,8 @@ import {
 const TabNavigator = createBottomTabNavigator({
     Home: { screen: HomeStackNavigator, }, 
 
-    Menu: { screen: MenuScreen },
+    // 기본적으로 내부의 내부의 화면을 들어가려면 StackNavigator를 써야 한다 
+    Menu: { screen: MenuStackNavigator },
 
     //ItemAuction: { screen: ItemAuctionStackNavigator, },
     CurrencyAution: { screen: CurrencyAuctionStackNavigator },

@@ -18,7 +18,7 @@ import NavigationType from '../../navigation/PropTypes';
 
 const moment = require('moment');
 
-export class Articles2 extends React.Component {
+export default class Articles2 extends React.Component {
   static propTypes = {
     navigation: NavigationType.isRequired,
   };

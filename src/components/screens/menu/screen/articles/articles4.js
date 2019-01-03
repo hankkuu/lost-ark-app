@@ -18,7 +18,7 @@ import {
 import NavigationType from '../../navigation/PropTypes';
 
 
-export class Articles4 extends React.Component {
+export default class Articles4 extends React.Component {
   static propTypes = {
     navigation: NavigationType.isRequired,
   };

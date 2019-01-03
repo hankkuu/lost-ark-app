@@ -22,18 +22,6 @@ class GridMenu extends Component {
         }
     }
 
-    render() {
-        const items = this.state.dimensions === undefined ? <View /> : this.renderItems();
-        return (
-            <ScrollView style={styles.container}
-                onLayout={this.onContainerLayout}
-                contentContainerStyle={styles.rootContainer}
-            >
-                {items}
-            </ScrollView>
-        );
-    }
-
     onContainerLayout = (event) => {
         if (this.state.height) {
             return;
@@ -41,6 +29,8 @@ class GridMenu extends Component {
         const dimensions = event.nativeEvent.layout;
         this.setState({ dimensions });
     };
+
+    renderItems = () => MainRoutes.map(this.renderItem);
 
     renderItem = (item) => (
         <RkButton
@@ -56,10 +46,21 @@ class GridMenu extends Component {
     );
 
     onItemPressed = (item) => {
+        //console.log(item.id);
         this.props.navigation.navigate(item.id);
-    };
+    };    
 
-    renderItems = () => MainRoutes.map(this.renderItem);
+    render() {
+        const items = this.state.dimensions === undefined ? <View /> : this.renderItems();
+        return (
+            <ScrollView style={styles.container}
+                onLayout={this.onContainerLayout}
+                contentContainerStyle={styles.rootContainer}
+            >
+                {items}
+            </ScrollView>
+        );
+    }
 }
 export default GridMenu;
 

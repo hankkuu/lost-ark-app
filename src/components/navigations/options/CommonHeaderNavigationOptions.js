@@ -1,6 +1,6 @@
 import { colors } from '@util/Colors';
 
-export const commonHeaderNavigationOptions = ({
+export const CommonHeaderNavigationOptions = ({
 
     headerBackTitle: null,  
     headerStyle: {
@@ -16,6 +16,6 @@ export const commonHeaderNavigationOptions = ({
       textAlign: 'center',   //
     },
     headerTintColor: 'red',
-    title: "상점",
+    //title: "상점",
   
   })
