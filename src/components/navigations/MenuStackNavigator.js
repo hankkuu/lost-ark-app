@@ -4,24 +4,41 @@ import StackViewStyleInterpolator from 'react-navigation-stack/dist/views/StackV
 import { CommonHeaderNavigationOptions } from '@navigation/options/CommonHeaderNavigationOptions';
 
 import MenuScreen from '@screen/menu/MenuScreen.js';
-import Article1Screen from '@screen/menu/screen/articles/articles1.js';
-import Article2Screen from '@screen/menu/screen/articles/articles2.js';
-import Article3Screen from '@screen/menu/screen/articles/articles3.js';
-import Article4Screen from '@screen/menu/screen/articles/articles4.js';
-import BlogpostsScreen from '@screen/menu/screen/articles/blogposts.js';
-import ArticleScreen from '@screen/menu/screen/articles/article.js';
-import { RouteMenuScreen } from '@screen/menu/RouteMenuScreen';
+import { LoginV1, LoginV2, PasswordRecovery, SignUp } from '@screen/menu/screen/login/index';
+import { Article, Articles1, Articles2, Articles3, Articles4, Blogposts } from '@screen/menu/screen/articles/index';
+import { Contacts, Feed, Notifications, ProfileV1, ProfileV2, ProfileV3, ProfileSettings } from '@screen/menu/screen/social/index';
+
+import { ArticleMenu, DashboardMenu, LoginMenu, SocialMenu } from '@screen/menu/RouteMenuScreen';
 
 const routeConfig = {
     Menu: { screen: MenuScreen },  
-    Articles1: { screen: Article1Screen, },
-    Articles2: { screen: Article2Screen, },
-    Articles3: { screen: Article3Screen, },
-    Articles4: { screen: Article4Screen },
 
-    Blogposts: { screen: BlogpostsScreen, },                  
-    Article: { screen: ArticleScreen },  
-    ArticlesMenu: { screen: RouteMenuScreen}
+    LoginMenu: { screen: LoginMenu},
+    Login1: { screen: LoginV1 },
+    Login2: { screen: LoginV2, },
+    Password: { screen: PasswordRecovery, },
+    SignUp: { screen: SignUp, },
+
+    ArticlesMenu: { screen: ArticleMenu},
+    Articles1: { screen: Articles1, },
+    Articles2: { screen: Articles2, },
+    Articles3: { screen: Articles3, },
+    Articles4: { screen: Articles4 },
+    Blogposts: { screen: Blogposts, },     
+    Article: { screen: Article },  
+
+    DashboardsMenu: { screen: DashboardMenu},
+
+    SocialMenu: { screen: SocialMenu },
+    Contacts: { screen: Contacts, },
+    Feed: { screen: Feed, },
+    Notifications: { screen: Notifications, },
+    ProfileV1: { screen: ProfileV1 },
+    ProfileV2: { screen: ProfileV2, },     
+    ProfileV3: { screen: ProfileV3 },  
+    ProfileSettings: { screen: ProfileSettings },  
+
+    
 }
 
 const navigatorConfig = {

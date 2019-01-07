@@ -46,7 +46,7 @@ class GridMenu extends Component {
     );
 
     onItemPressed = (item) => {
-        //console.log(item.id);
+        console.log(item.id);
         this.props.navigation.navigate(item.id);
     };    
 

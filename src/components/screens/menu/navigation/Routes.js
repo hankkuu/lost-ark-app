@@ -4,88 +4,88 @@ import * as Screens from '../screen/Index';
 
 export const MainRoutes = [
   {
-  //   id: 'LoginMenu',
-  //   title: 'Auth',
-  //   icon: FontIcons.login,
-  //   screen: Screens.LoginMenu,
-  //   children: [
-  //     {
-  //       id: 'Login1',
-  //       title: 'Login V1',
-  //       screen: Screens.LoginV1,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'Login2',
-  //       title: 'Login V2',
-  //       screen: Screens.LoginV2,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'SignUp',
-  //       title: 'Sign Up',
-  //       screen: Screens.SignUp,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'password',
-  //       title: 'Password Recovery',
-  //       screen: Screens.PasswordRecovery,
-  //       children: [],
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 'SocialMenu',
-  //   title: 'Social',
-  //   icon: FontIcons.profile,
-  //   screen: Screens.SocialMenu,
-  //   children: [
-  //     {
-  //       id: 'ProfileV1',
-  //       title: 'User Profile V1',
-  //       screen: Screens.ProfileV1,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'ProfileV2',
-  //       title: 'User Profile V2',
-  //       screen: Screens.ProfileV2,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'ProfileV3',
-  //       title: 'User Profile V3',
-  //       screen: Screens.ProfileV3,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'ProfileSettings',
-  //       title: 'Profile Settings',
-  //       screen: Screens.ProfileSettings,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'Notifications',
-  //       title: 'Notifications',
-  //       screen: Screens.Notifications,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'Contacts',
-  //       title: 'Contacts',
-  //       screen: Screens.Contacts,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'Feed',
-  //       title: 'Feed',
-  //       screen: Screens.Feed,
-  //       children: [],
-  //     },
-  //   ],
-  // },
-  //{
+    id: 'LoginMenu',
+    title: 'Auth',
+    icon: FontIcons.login,
+    screen: Screens.LoginMenu,
+    children: [
+      {
+        id: 'Login1',
+        title: 'Login V1',
+        screen: Screens.LoginV1,
+        children: [],
+      },
+      {
+        id: 'Login2',
+        title: 'Login V2',
+        screen: Screens.LoginV2,
+        children: [],
+      },
+      {
+        id: 'SignUp',
+        title: 'Sign Up',
+        screen: Screens.SignUp,
+        children: [],
+      },
+      {
+        id: 'Password',
+        title: 'Password Recovery',
+        screen: Screens.PasswordRecovery,
+        children: [],
+      },
+    ],
+  },
+  {
+    id: 'SocialMenu',
+    title: 'Social',
+    icon: FontIcons.profile,
+    screen: Screens.SocialMenu,
+    children: [
+      {
+        id: 'ProfileV1',
+        title: 'User Profile V1',
+        screen: Screens.ProfileV1,
+        children: [],
+      },
+      {
+        id: 'ProfileV2',
+        title: 'User Profile V2',
+        screen: Screens.ProfileV2,
+        children: [],
+      },
+      {
+        id: 'ProfileV3',
+        title: 'User Profile V3',
+        screen: Screens.ProfileV3,
+        children: [],
+      },
+      {
+        id: 'ProfileSettings',
+        title: 'Profile Settings',
+        screen: Screens.ProfileSettings,
+        children: [],
+      },
+      {
+        id: 'Notifications',
+        title: 'Notifications',
+        screen: Screens.Notifications,
+        children: [],
+      },
+      {
+        id: 'Contacts',
+        title: 'Contacts',
+        screen: Screens.Contacts,
+        children: [],
+      },
+      {
+        id: 'Feed',
+        title: 'Feed',
+        screen: Screens.Feed,
+        children: [],
+      },
+    ],
+  },
+  {
     id: 'ArticlesMenu',
     title: 'Articles',
     icon: FontIcons.article,
@@ -155,18 +155,18 @@ export const MainRoutes = [
   //     },
   //   ],
   // },
-  // {
-  //   id: 'DashboardsMenu',
-  //   title: 'Dashboards',
-  //   icon: FontIcons.dashboard,
-  //   screen: Screens.DashboardMenu,
-  //   children: [{
-  //     id: 'Dashboard',
-  //     title: 'Dashboard',
-  //     screen: Screens.Dashboard,
-  //     children: [],
-  //   }],
-  // },
+  {
+    id: 'DashboardsMenu',
+    title: 'Dashboards',
+    icon: FontIcons.dashboard,
+    screen: Screens.DashboardMenu,
+    children: [{
+      id: 'Dashboard',
+      title: 'Dashboard',
+      screen: Screens.Dashboard,
+      children: [],
+    }],
+  },
   // {
   //   id: 'WalkthroughMenu',
   //   title: 'Walkthroughs',

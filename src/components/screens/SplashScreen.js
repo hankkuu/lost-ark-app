@@ -95,7 +95,7 @@ class Splash extends Component {
     appAuthorization = async () => {
         const userToken = await AsyncStorage.getItem("@Session:token");
         console.log(`userToken : ${userToken}`);
-        if (userToken !== 'success') {
+        if (userToken === 'success') {
             //this.setState({ isSkipped: true})
             this.props.navigation.navigate("Main");
         } else {

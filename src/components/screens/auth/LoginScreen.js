@@ -22,7 +22,7 @@ import {
 import { statusBarHeight } from '@util/Styles';
 import { getAssetByFilename } from '@util/Images'
 
-import { GradientButton } from '@kittenDesign/gradientButton/index';
+import { GradientButton } from '@kittenDesign';
 import { FontAwesome } from '@kittenDesign/icons';
 
 class LoginScreen extends Component {

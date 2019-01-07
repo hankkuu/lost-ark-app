@@ -18,7 +18,7 @@ import NavigationType from '../../navigation/PropTypes';
 
 const moment = require('moment');
 
-export default class Articles1 extends React.Component {
+export class Articles1 extends React.Component {
   static propTypes = {
     navigation: NavigationType.isRequired,
   };
@@ -33,6 +33,7 @@ export default class Articles1 extends React.Component {
   extractItemKey = (item) => `${item.id}`;
 
   onItemPressed = ({ item }) => {
+    console.log(item);
     this.props.navigation.navigate('Article', { id: item.id });
   };
 

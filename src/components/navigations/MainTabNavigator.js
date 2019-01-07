@@ -20,6 +20,7 @@ import CurrencyAuctionStackNavigator from '@navigation/CurrencyAuctionStackNavig
 import SettingStackNavigator from '@navigation/SettingStackNavigator';
 
 import ShopScreen from '@screen/shop/ShopScreen';
+import WebViewScreen from '@screen/home/WebViewScreen';
 
 import {
     RkStyleSheet,
@@ -33,8 +34,10 @@ const TabNavigator = createBottomTabNavigator({
     Menu: { screen: MenuStackNavigator },
 
     //ItemAuction: { screen: ItemAuctionStackNavigator, },
-    CurrencyAution: { screen: CurrencyAuctionStackNavigator },
-    Shop: { screen: ShopScreen },
+    //CurrencyAution: { screen: CurrencyAuctionStackNavigator },
+    //Shop: { screen: ShopScreen },
+
+    WebView: { screen: WebViewScreen, },
     SettingStack: { screen: SettingStackNavigator },
 }, {
         navigationOptions: ({ navigation }) => ({
@@ -49,10 +52,8 @@ const TabNavigator = createBottomTabNavigator({
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('홈')}</Text>;
                     case 'Menu':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Grid')}</Text>;
-                    case 'CurrencyAution':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('화폐경매')}</Text>;
-                    case 'Shop':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('상점')}</Text>;
+                    case 'WebView':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('웹뷰')}</Text>;   
                     case 'SettingStack':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('설정')}</Text>;
                     default:
