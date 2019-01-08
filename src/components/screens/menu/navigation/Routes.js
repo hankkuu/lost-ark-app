@@ -129,32 +129,32 @@ export const MainRoutes = [
       },
     ],
   },
-  // {
-  //   id: 'MessagingMenu',
-  //   title: 'Messaging',
-  //   icon: FontIcons.mail,
-  //   screen: Screens.MessagingMenu,
-  //   children: [
-  //     {
-  //       id: 'Chat',
-  //       title: 'Chat',
-  //       screen: Screens.Chat,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'ChatList',
-  //       title: 'Chat List',
-  //       screen: Screens.ChatList,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'Comments',
-  //       title: 'Comments',
-  //       screen: Screens.Comments,
-  //       children: [],
-  //     },
-  //   ],
-  // },
+  {
+    id: 'MessagingMenu',
+    title: 'Messaging',
+    icon: FontIcons.mail,
+    screen: Screens.MessagingMenu,
+    children: [
+      {
+        id: 'Chat',
+        title: 'Chat',
+        screen: Screens.Chat,
+        children: [],
+      },
+      {
+        id: 'ChatList',
+        title: 'Chat List',
+        screen: Screens.ChatList,
+        children: [],
+      },
+      {
+        id: 'Comments',
+        title: 'Comments',
+        screen: Screens.Comments,
+        children: [],
+      },
+    ],
+  },
   {
     id: 'DashboardsMenu',
     title: 'Dashboards',
@@ -167,18 +167,18 @@ export const MainRoutes = [
       children: [],
     }],
   },
-  // {
-  //   id: 'WalkthroughMenu',
-  //   title: 'Walkthroughs',
-  //   icon: FontIcons.mobile,
-  //   screen: Screens.WalkthroughMenu,
-  //   children: [{
-  //     id: 'Walkthrough',
-  //     title: 'Walkthrough',
-  //     screen: Screens.WalkthroughScreen,
-  //     children: [],
-  //   }],
-  // },
+  {
+    id: 'WalkthroughMenu',
+    title: 'Walkthroughs',
+    icon: FontIcons.mobile,
+    screen: Screens.WalkthroughMenu,
+    children: [{
+      id: 'Walkthrough',
+      title: 'Walkthrough',
+      screen: Screens.WalkthroughScreen,
+      children: [],
+    }],
+  },
   // {
   //   id: 'EcommerceMenu',
   //   title: 'Ecommerce',

@@ -12,3 +12,4 @@ export * from './socialSetting';
 // export * from './paginationIndicator';
 // export * from './passwordTextInput';
 // export * from './cardInput';
+export * from './walkthrough';

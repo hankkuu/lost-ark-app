@@ -4,8 +4,8 @@
 export * from './dashboard';
 export * from './social';
 export * from './articles';
-// export * from './messaging';
+export * from './messaging';
 export * from './login';
-// export * from './walkthroughs';
+export * from './walkthroughs';
 // export * from './eCommerce';
 // export * from './theme';

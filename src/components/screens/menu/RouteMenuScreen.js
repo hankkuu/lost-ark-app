@@ -57,3 +57,27 @@ export class SocialMenu extends React.Component {
     );
   }
 }
+
+export class MessagingMenu extends React.Component {
+  //static propTypes = {
+  //  navigation: NavigationType.isRequired,
+  //};
+  static navigationOptions = {
+    title: 'Messaging'.toUpperCase(),
+  };
+  render = () => (
+    <CategoryMenu navigation={this.props.navigation} items={Routes.MessagingRoutes} />
+  );
+}
+
+export class WalkthroughMenu extends React.Component {
+  //static propTypes = {
+  //  navigation: NavigationType.isRequired,
+  //};
+  static navigationOptions = {
+    title: 'Walkthrough'.toUpperCase(),
+  };
+  render = () => (
+    <CategoryMenu navigation={this.props.navigation} items={Routes.WalkthroughRoutes} />
+  );
+}

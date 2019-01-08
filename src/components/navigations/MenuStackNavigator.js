@@ -7,8 +7,10 @@ import MenuScreen from '@screen/menu/MenuScreen.js';
 import { LoginV1, LoginV2, PasswordRecovery, SignUp } from '@screen/menu/screen/login/index';
 import { Article, Articles1, Articles2, Articles3, Articles4, Blogposts } from '@screen/menu/screen/articles/index';
 import { Contacts, Feed, Notifications, ProfileV1, ProfileV2, ProfileV3, ProfileSettings } from '@screen/menu/screen/social/index';
+import { Chat, ChatList, Comments } from '@screen/menu/screen/messaging/index';
+import { WalkthroughScreen } from '@screen/menu/screen/walkthroughs/index';
 
-import { ArticleMenu, DashboardMenu, LoginMenu, SocialMenu } from '@screen/menu/RouteMenuScreen';
+import { ArticleMenu, DashboardMenu, LoginMenu, SocialMenu, MessagingMenu, WalkthroughMenu } from '@screen/menu/RouteMenuScreen';
 
 const routeConfig = {
     Menu: { screen: MenuScreen },  
@@ -38,6 +40,13 @@ const routeConfig = {
     ProfileV3: { screen: ProfileV3 },  
     ProfileSettings: { screen: ProfileSettings },  
 
+    MessagingMenu: { screen: MessagingMenu },
+    Chat: { screen: Chat, },
+    ChatList: { screen: ChatList, },
+    Comments: { screen: Comments, },
+
+    WalkthroughMenu: { screen: WalkthroughMenu },
+    WalkthroughScreen: { screen: WalkthroughScreen, },
     
 }
 
