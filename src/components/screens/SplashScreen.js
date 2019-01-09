@@ -95,15 +95,18 @@ class Splash extends Component {
     appAuthorization = async () => {
         const userToken = await AsyncStorage.getItem("@Session:token");
         console.log(`userToken : ${userToken}`);
-        if (userToken === 'success') {
+        if (userToken === 'successs') {
             //this.setState({ isSkipped: true})
             this.props.navigation.navigate("Main");
+        } else if( userToken === 'fail' ) {
+            // 앱을 처음 설치하면 소개 화면이 나오게 한다 
+            this.props.navigation.navigate("Auth");
         } else {
             // 현재는 아무이유 없이 3초 보여주는 중.... (변경)=> 사용자 인증 확인을 한다
             //setTimeout(() => {
-            this.props.navigation.navigate("Auth");
+            this.props.navigation.navigate("Walkthrough");
             //}, 3000);           
-        }
+        } 
     }
 
     // async cacheResourcesAsync() {

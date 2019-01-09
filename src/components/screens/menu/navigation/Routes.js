@@ -179,62 +179,61 @@ export const MainRoutes = [
       children: [],
     }],
   },
-  // {
-  //   id: 'EcommerceMenu',
-  //   title: 'Ecommerce',
-  //   icon: FontIcons.card,
-  //   screen: Screens.EcommerceMenu,
-  //   children: [
-  //     {
-  //       id: 'Cards',
-  //       title: 'Cards',
-  //       icon: FontIcons.card,
-  //       screen: Screens.Cards,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'AddToCardForm',
-  //       title: 'Add Card Form',
-  //       icon: FontIcons.addToCardForm,
-  //       screen: Screens.AddToCardForm,
-  //       children: [],
-  //     },
-
-  //   ],
-  // },
-  // {
-  //   id: 'NavigationMenu',
-  //   icon: FontIcons.navigation,
-  //   title: 'Navigation',
-  //   screen: Screens.NavigationMenu,
-  //   children: [
-  //     {
-  //       id: 'GridV1',
-  //       title: 'Grid Menu V1',
-  //       screen: Screens.GridV1,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'GridV2',
-  //       title: 'Grid Menu V2',
-  //       screen: Screens.GridV2,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'List',
-  //       title: 'List Menu',
-  //       screen: Screens.ListMenu,
-  //       children: [],
-  //     },
-  //     {
-  //       id: 'Side',
-  //       title: 'Side Menu',
-  //       action: 'DrawerOpen',
-  //       screen: Screens.SideMenu,
-  //       children: [],
-  //     },
-  //   ],
-  // },
+  {
+    id: 'EcommerceMenu',
+    title: 'Ecommerce',
+    icon: FontIcons.card,
+    screen: Screens.EcommerceMenu,
+    children: [
+      {
+        id: 'Cards',
+        title: 'Cards',
+        icon: FontIcons.card,
+        screen: Screens.Cards,
+        children: [],
+      },
+      {
+        id: 'AddToCardForm',
+        title: 'Add Card Form',
+        icon: FontIcons.addToCardForm,
+        screen: Screens.AddToCardForm,
+        children: [],
+      },
+    ],
+  },
+  {
+    id: 'NavigationMenu',
+    icon: FontIcons.navigation,
+    title: 'Navigation',
+    screen: Screens.NavigationMenu,
+    children: [
+      {
+        id: 'GridV1',
+        title: 'Grid Menu V1',
+        screen: Screens.GridV1,
+        children: [],
+      },
+      {
+        id: 'GridV2',
+        title: 'Grid Menu V2',
+        screen: Screens.GridV2,
+        children: [],
+      },
+      {
+        id: 'List',
+        title: 'List Menu',
+        screen: Screens.ListMenu,
+        children: [],
+      },
+      // {
+      //   id: 'Side',
+      //   title: 'Side Menu',
+      //   action: 'DrawerOpen',
+      //   screen: Screens.SideMenu,
+      //   children: [],
+      // },
+    ],
+  },
   // {
   //   id: 'OtherMenu',
   //   title: 'Other',

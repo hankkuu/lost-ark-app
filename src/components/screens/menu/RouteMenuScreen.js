@@ -8,9 +8,9 @@ export class LoginMenu extends React.Component {
   //static propTypes = {
   //  navigation: NavigationType.isRequired,
   //};
-  static navigationOptions = {
-    title: 'Login'.toUpperCase(),
-  };
+  //static navigationOptions = {
+  //  title: 'Login'.toUpperCase(),
+  //};
   render = () => (
     <CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes} />
   );
@@ -24,7 +24,7 @@ export class ArticleMenu extends React.Component {
     title: 'Articles'.toUpperCase(),
   };
   render = () => {
-    console.log(this.props.navigation);
+    //console.log(this.props.navigation);
     return (
       <CategoryMenu navigation={this.props.navigation} items={Routes.ArticleRoutes} />
     );
@@ -39,7 +39,7 @@ export class DashboardMenu extends React.Component {
     title: 'Dashboards'.toUpperCase(),
   };
   render = () => {
-    console.log(this.props.navigation);
+   // console.log(this.props.navigation);
     return (
       <CategoryMenu navigation={this.props.navigation} items={Routes.DashboardRoutes} />
     );
@@ -51,7 +51,7 @@ export class SocialMenu extends React.Component {
     title: 'Social'.toUpperCase(),
   };
   render = () => {
-    console.log(this.props.navigation);
+    //console.log(this.props.navigation);
     return (
       <CategoryMenu navigation={this.props.navigation} items={Routes.SocialRoutes} />
     );
@@ -79,5 +79,29 @@ export class WalkthroughMenu extends React.Component {
   };
   render = () => (
     <CategoryMenu navigation={this.props.navigation} items={Routes.WalkthroughRoutes} />
+  );
+}
+
+export class EcommerceMenu extends React.Component {
+  //static propTypes = {
+  //  navigation: NavigationType.isRequired,
+  //};
+  static navigationOptions = {
+    title: 'Ecommerce'.toUpperCase(),
+  };
+  render = () => (
+    <CategoryMenu navigation={this.props.navigation} items={Routes.EcommerceRoutes} />
+  );
+}
+
+export class NavigationMenu extends React.Component {
+  //static propTypes = {
+  //  navigation: NavigationType.isRequired,
+  //};
+  static navigationOptions = {
+    title: 'Navigation'.toUpperCase(),
+  };
+  render = () => (
+    <CategoryMenu navigation={this.props.navigation} items={Routes.NavigationRoutes} />
   );
 }

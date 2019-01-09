@@ -13,7 +13,7 @@ import {
 export class Walkthrough2 extends React.Component {
   getThemeImageSource = (theme) => (
     theme.name === 'light' ?
-      require('../../../../../../assets/images/config/screensImage.png') : require('../../../../../../assets/images/config/screensImageDark.png')
+      require('../../../../../../assets/images/lostArk1.png') : require('../../../../../../assets/images/config/screensImageDark.png')
   );
 
   renderImage = () => (
@@ -26,7 +26,7 @@ export class Walkthrough2 extends React.Component {
   render = () => (
     <View style={styles.screen}>
       {this.renderImage()}
-      <RkText rkType='header2' style={styles.text}>Explore different examples of frequently used pages</RkText>
+      <RkText rkType='header2' style={styles.text}>아크를 찾아서</RkText>
     </View>
   )
 }

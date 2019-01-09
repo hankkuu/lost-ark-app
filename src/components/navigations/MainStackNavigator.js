@@ -58,24 +58,25 @@ const navigatorConfig = {
             case 3:
             {
                 return ({
-                    ...CommonHeaderNavigationOptions,
-                    title: navigation.state.routes[index].routeName,
-                    headerLeft:
-                        <TouchableOpacity
-                            activeOpacity={0.5}
-                            onPress={() => { navigation.navigate('Cash') }}
-                        >
-                            <Text style={{color: 'white', fontSize: 15, marginHorizontal: 10,}}>캐시/환불</Text>
-                        </TouchableOpacity>,
-                    headerRight:
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <TouchableOpacity
-                                activeOpacity={0.5}
-                                onPress={() => navigation.navigate('PurchaseHistory')}
-                            >
-                                <Text style={{color: 'white', fontSize: 15, marginHorizontal: 10,}}>구매히스토리</Text>
-                            </TouchableOpacity>
-                        </View>,                    
+                    header: null
+                    // ...CommonHeaderNavigationOptions,
+                    // title: navigation.state.routes[index].routeName,
+                    // headerLeft:
+                    //     <TouchableOpacity
+                    //         activeOpacity={0.5}
+                    //         onPress={() => { navigation.navigate('Cash') }}
+                    //     >
+                    //         <Text style={{color: 'white', fontSize: 15, marginHorizontal: 10,}}>캐시/환불</Text>
+                    //     </TouchableOpacity>,
+                    // headerRight:
+                    //     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    //         <TouchableOpacity
+                    //             activeOpacity={0.5}
+                    //             onPress={() => navigation.navigate('PurchaseHistory')}
+                    //         >
+                    //             <Text style={{color: 'white', fontSize: 15, marginHorizontal: 10,}}>구매히스토리</Text>
+                    //         </TouchableOpacity>
+                    //     </View>,                    
                 });
             }
             case 4: 

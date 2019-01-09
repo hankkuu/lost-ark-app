@@ -12,7 +12,7 @@ import {
 export class Walkthrough1 extends React.Component {
   getThemeImageSource = (theme) => (
     theme.name === 'light' ?
-      require('../../../../../../assets/images/config/kittenImage.png') : require('../../../../../../assets/images/config/kittenImageDark.png')
+      require('../../../../../../assets/images/againLOA.jpg') : require('../../../../../../assets/images/config/kittenImageDark.png')
   );
 
   renderImage = () => (
@@ -22,7 +22,7 @@ export class Walkthrough1 extends React.Component {
   render = () => (
     <View style={styles.screen}>
       {this.renderImage()}
-      <RkText rkType='header2' style={styles.text}>Welcome to Kitten Tricks</RkText>
+      <RkText rkType='header2' style={styles.text}>다시 MMORPG!!!</RkText>
     </View>
   )
 }

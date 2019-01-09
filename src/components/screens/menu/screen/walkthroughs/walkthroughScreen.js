@@ -18,16 +18,21 @@ export class WalkthroughScreen extends React.Component {
     header: null,
   };
 
-  state = {
-    index: 0,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0
+    }
+  }
 
   onWalkThroughIndexChanged = (index) => {
     this.setState({ index });
   };
 
   onStartButtonPressed = () => {
-    this.props.navigation.goBack();
+    //this.props.navigation.goBack();
+    //console.log(this.props.navigation);
+    this.props.navigation.navigate("Auth");
   };
 
   render = () => (
@@ -40,7 +45,7 @@ export class WalkthroughScreen extends React.Component {
       <GradientButton
         rkType='large'
         style={styles.button}
-        text="GET STARTED"
+        text="START"
         onPress={this.onStartButtonPressed}
       />
     </View>

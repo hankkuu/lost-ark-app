@@ -42,7 +42,7 @@ class WebViewScreen extends Component {
             clearInterval(this.timer);
         } else {
             const randProgress = this.state.progress + (Math.random() * 0.5);
-            console.log(randProgress);
+            //console.log(randProgress);
             this.setState({ progress: randProgress > 1 ? 1 : randProgress });
         }
     }
@@ -107,15 +107,18 @@ class WebViewScreen extends Component {
         );
     }
     onNavigationStateChange = (navState) => {
+        console.log(navState);
         this.setState({
             goBackVisible: navState.canGoBack
         })
     }
     onBack = () => {
         const { goBackVisible } = this.state;
+        console.log(goBackVisible);
         if (goBackVisible) {
             WEBVIEW_REF.current.goBack();
         } else {
+            this.setModalVisible(false);
             this.props.navigation.goBack();
         }
     }

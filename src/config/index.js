@@ -9,7 +9,9 @@ export * from './socialSetting';
 // export * from './findFriends';
 // export * from './progressBar';
 // export * from './navBar';
-// export * from './paginationIndicator';
-// export * from './passwordTextInput';
+export * from './paginationIndicator';
+export * from './passwordTextInput';
 // export * from './cardInput';
 export * from './walkthrough';
+export * from './picker';
+export * from './cardInput'

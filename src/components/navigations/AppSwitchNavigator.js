@@ -8,12 +8,14 @@ import Splash from '@screen/SplashScreen';
 import Loading from '@screen/LoadingScreen';
 import AuthStackNavigator from '@navigation/AuthStackNavigator';
 import MainStackNavigator from '@navigation/MainStackNavigator';
+import { WalkthroughScreen } from '@screen/menu/screen/walkthroughs/index';
 
 export default createSwitchNavigator({
     Splash: { screen: Splash },
     Loading: { screen: Loading },
     Auth: { screen: AuthStackNavigator },
-    Main: { screen: MainStackNavigator }
+    Main: { screen: MainStackNavigator },
+    Walkthrough: { screen: WalkthroughScreen }
 }, {
     initialRouteName: 'Splash',
 });
