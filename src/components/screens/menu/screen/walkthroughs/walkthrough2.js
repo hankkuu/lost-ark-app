@@ -13,7 +13,7 @@ import {
 export class Walkthrough2 extends React.Component {
   getThemeImageSource = (theme) => (
     theme.name === 'light' ?
-      require('../../../../../../assets/images/lostArk1.png') : require('../../../../../../assets/images/config/screensImageDark.png')
+      require('../../../../../../assets/images/intro2.png') : require('../../../../../../assets/images/config/screensImageDark.png')
   );
 
   renderImage = () => (
@@ -37,6 +37,7 @@ const styles = RkStyleSheet.create(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
+    height: '100%'
   },
   text: {
     textAlign: 'center',
