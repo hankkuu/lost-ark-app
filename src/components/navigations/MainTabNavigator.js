@@ -1,25 +1,25 @@
 import React from 'react';
-import { 
-    Platform, 
-    StyleSheet, 
-    Text 
+import {
+    Platform,
+    StyleSheet,
+    Text
 } from 'react-native';
-import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createMaterialTopTabNavigator, } from 'react-navigation';
 // 해당 네비게이터도 사용할 수 있다 
 // 라이브러리 설명 : https://reactnavigation.org/docs/en/material-bottom-tab-navigator.html
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+// 현재 위 네비게이터를 쓰면 오류가 난다 
 
 import { colors } from '@util/Colors';
 
 import HomeStackNavigator from '@navigation/HomeStackNavigator';
 import MenuStackNavigator from '@navigation/MenuStackNavigator';
-//import MenuScreen from '@screen/menu/MenuScreen'
 
 import ItemAuctionStackNavigator from '@navigation/ItemAuctionStackNavigator';
 import CurrencyAuctionStackNavigator from '@navigation/CurrencyAuctionStackNavigator';
-import SettingStackNavigator from '@navigation/SettingStackNavigator';
-
 import ShopScreen from '@screen/shop/ShopScreen';
+
+import SettingStackNavigator from '@navigation/SettingStackNavigator';
 import WebViewScreen from '@screen/home/WebViewScreen';
 
 import {
@@ -28,13 +28,14 @@ import {
 } from 'react-native-ui-kitten';
 
 const TabNavigator = createBottomTabNavigator({
-    Home: { screen: HomeStackNavigator, }, 
+    //const TabNavigator = createMaterialBottomTabNavigator({
+    Home: { screen: HomeStackNavigator, },
 
     // 기본적으로 내부의 내부의 화면을 들어가려면 StackNavigator를 써야 한다 
     Menu: { screen: MenuStackNavigator },
 
-    //ItemAuction: { screen: ItemAuctionStackNavigator, },
-    //CurrencyAution: { screen: CurrencyAuctionStackNavigator },
+    ItemAuction: { screen: ItemAuctionStackNavigator, },
+    CurrencyAution: { screen: CurrencyAuctionStackNavigator },
     //Shop: { screen: ShopScreen },
 
     WebView: { screen: WebViewScreen, },
@@ -43,7 +44,7 @@ const TabNavigator = createBottomTabNavigator({
         navigationOptions: ({ navigation }) => ({
             //...MainTabNavigationOptions,
             //header: null,
-            
+
             tabBarVisible: true,
             tabBarLabel: ({ focused }) => {
                 const { routeName } = navigation.state;
@@ -52,8 +53,12 @@ const TabNavigator = createBottomTabNavigator({
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('홈')}</Text>;
                     case 'Menu':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('Grid')}</Text>;
+                    case 'ItemAuction':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('아이템')}</Text>;
+                    case 'CurrencyAution':
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('화폐')}</Text>;
                     case 'WebView':
-                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('웹뷰')}</Text>;   
+                        return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('웹뷰')}</Text>;
                     case 'SettingStack':
                         return <Text style={[styles.txt, { opacity: focused ? 1 : 0.5 }]}>{('설정')}</Text>;
                     default:
@@ -68,11 +73,11 @@ const TabNavigator = createBottomTabNavigator({
             //      backgroundColor: 'yellow'
             // },   // TopTap에서 사용
             labelStyle: {
-                
+
             },
             style: {
                 height: 50,
-                backgroundColor: RkTheme.current.colors.screen.base,           
+                backgroundColor: RkTheme.current.colors.screen.base,
                 borderTopColor: 'gray',
                 borderTopWidth: 1,
                 elevation: 0
