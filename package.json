@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@valdio/react-native-scrollable-tabview": "^0.8.10",
+    "antd-mobile-demo-data": "^0.2.0",
     "antd-mobile-rn": "^2.3.3",
     "expo": "^31.0.3",
     "lodash": "^4.17.11",

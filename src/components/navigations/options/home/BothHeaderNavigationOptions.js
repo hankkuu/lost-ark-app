@@ -38,7 +38,7 @@ export const BothHeaderNavigationOptions = ({ navigation }) => ({
                 onPress={() => { navigation.navigate('OldHome') }}
             >
             <View style={styles.leftWrap}>
-                <Text style={styles.txt}>알람</Text>
+                <Text style={styles.txt}>과거 Home</Text>
             </View>
             </TouchableOpacity>
         )

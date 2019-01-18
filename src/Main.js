@@ -55,6 +55,7 @@ class App extends Component {
             'Roboto-Regular': require('@asset/fonts/Roboto-Regular.ttf'),
             'Roboto-Light': require('@asset/fonts/Roboto-Light.ttf'),
             'Space-Mono': require('@asset/fonts/SpaceMono-Regular.ttf'),
+            'anticon': require('@asset/fonts/iconfont.ttf')
         });
         //await Asset.loadAsync([
         //    getAssetByFilename('splash')

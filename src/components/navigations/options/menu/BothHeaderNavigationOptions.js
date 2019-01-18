@@ -35,10 +35,10 @@ export const BothHeaderNavigationOptions = ({ navigation }) => ({
         return (
             <TouchableOpacity
                 activeOpacity={0.5}
-                onPress={() => { navigation.navigate('') }}
+                onPress={() => { navigation.navigate('AntD') }}
             >
             <View style={styles.leftWrap}>
-                <Text style={styles.txt}>알람</Text>
+                <Text style={styles.txt}>And Design</Text>
             </View>
             </TouchableOpacity>
         )

@@ -7,12 +7,15 @@ import { collapsibleOptionsForTab, collapsibleTabConfig } from 'react-navigation
 import CurrencyAuctionScreen from '@screen/currencyAuction/CurrencyAuctionScreen';
 import ChargePointScreen from '@screen/currencyAuction/ChargePointScreen';
 import TransactionHistoryScreen from '@screen/currencyAuction/TransactionHistoryScreen';
-import SellScreen from '@screen/currencyAuction/TransactionHistoryScreen';
-import BuyScreen from '@screen/currencyAuction/TransactionHistoryScreen';
-import CurrentScreen from '@screen/currencyAuction/TransactionHistoryScreen';
+import SellScreen from '@screen/currencyAuction/SellScreen';
+import BuyScreen from '@screen/currencyAuction/BuyScreen';
+import CurrentScreen from '@screen/currencyAuction/CurrentScreen';
 
-const TopCurrencyNavigator = createMaterialTopTabNavigator({
-    CurrencyAuction: { screen: CurrencyAuctionScreen },
+import ProgressScreen from '@screen/currencyAuction/ProgressScreen';
+import Resultcreen from '@screen/currencyAuction/Resultcreen';
+
+const TapCurrencyNavigator = createMaterialTopTabNavigator({
+    //CurrencyAuction: { screen: CurrencyAuctionScreen },
     Sell: { screen: SellScreen },
     Buy: { screen: BuyScreen },
     Current: { screen: CurrentScreen },
@@ -28,19 +31,34 @@ const TopCurrencyNavigator = createMaterialTopTabNavigator({
     })
 )
 
+const TapHistoryNavigator = createMaterialTopTabNavigator({
+    Progress: { screen: ProgressScreen },
+    Result: { screen: Resultcreen },    
+},
+    collapsibleTabConfig({
+        animationEnabled: true,
+        navigationOptions: {
+            tabBarOptions: {
+                indicatorStyle: { backgroundColor: 'white' },
+                style: { borderTopColor: 'transparent', borderTopWidth: 0, elevation: 0, backgroundColor: '#061' },
+            }
+        }
+    })
+)
+
 
 const routeConfig = {
-    CurrencyAuction: { screen: CurrencyAuctionScreen },
+    //CurrencyAuction: { screen: CurrencyAuctionScreen },
     // 추가 화면은?? 
 
-    TopCurrency: { screen: TopCurrencyNavigator, navigationOptions: props => collapsibleOptionsForTab(props, { title: 'Test' }) },
+    TapCurrency: { screen: TapCurrencyNavigator, navigationOptions: props => collapsibleOptionsForTab(props, { title: '화폐 거래소' }) },
 
     ChargePoint: { screen: ChargePointScreen },
-    TransactionHistory: { screen: TransactionHistoryScreen }
+    TransactionHistory: { screen: TapHistoryNavigator, navigationOptions: props => collapsibleOptionsForTab(props, { title: '거래내역' })  }
 }
 
 const navigatorConfig = {
-    initialRouteName: 'TopCurrency',
+    initialRouteName: 'TapCurrency',
     gesturesEnabled: true,
     navigationOptions: BothHeaderNavigationOptions,
     transitionConfig: () => ({ screenInterpolator: StackViewStyleInterpolator.forFade, }),

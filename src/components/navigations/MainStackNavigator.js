@@ -17,14 +17,16 @@ import { CommonHeaderNavigationOptions } from '@navigation/options/CommonHeaderN
 import CashScreen from "@screen/shop/header/CashScreen";
 import PurchaseHistoryScreen from '@screen/shop/header/PurchaseHistoryScreen';
 import GoodsDetailScreen from "@screen/shop/detail/GoodsDetailScreen";
-
+import AntDApp from "@navigation/AntDStackNavigator";
 
 const routeConfig = {
     MainTab: { screen: MainTabNavigator,  },
 
     Cash: { screen: CashScreen },
     PurchaseHistory: { screen: PurchaseHistoryScreen },
-    GoodsDetail: { screen: GoodsDetailScreen }
+    GoodsDetail: { screen: GoodsDetailScreen },
+
+    AntD: { screen: AntDApp }
 }
 
 const navigatorConfig = {
