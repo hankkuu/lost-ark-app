@@ -11,23 +11,24 @@ class TransactionItem extends Component {
         return (
             <View style={styles.container}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around' }} >
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ width: '13%', alignItems: "center" }}>
                         <Text>{type}</Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ width: '32%', alignItems: "center" }}>
                         <Text>{gold}</Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ width: '20%', alignItems: "center" }}>
                         <Text>{crystal}</Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ width: '10%', alignItems: "center" }}>
                         <Text>{cost}</Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ width: '25%', alignItems: "center" }}>
                         <Text>{remainTime}</Text>
                     </View>
                 </View>
             </View>
+   
         );
     }
 }

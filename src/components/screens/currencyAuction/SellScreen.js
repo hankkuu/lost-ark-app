@@ -53,7 +53,8 @@ class SellScreen extends Component {
                 </View>
                 <View style={{ margin: 10,  }} >
                     <Button style={{backgroundColor: '#061', }} onClick={this.showModal} >
-                    크리스탈 판매</Button>
+                        <Text style={{ color: 'white'}}>크리스탈 판매</Text>
+                    </Button>
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "flex-start", justifyContent: "space-around", marginTop: 10}}>
                     <View style={{ paddingTop: 15, }}>

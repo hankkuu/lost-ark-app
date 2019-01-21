@@ -20,10 +20,10 @@ class ProgressScreen extends Component {
 
     componentDidMount() {
         const data = [
-            { id: 1, type: 100, gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
-            { id: 2, type: 100, gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
-            { id: 3, type: 100, gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
-            { id: 4, type: 100, gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
+            { id: 1, type: '골드', gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
+            { id: 2, type: '골드', gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
+            { id: 3, type: '크리스탈', gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
+            { id: 4, type: '마일리지', gold: 500, crystal: 200, cost: 400, remainTime: '00:04:32' },
         ]
         this.setState({
             lists: data
@@ -43,14 +43,24 @@ class ProgressScreen extends Component {
                 </View>
                 <View style={{ margin: 10, flexDirection: 'row', justifyContent: "flex-end"  }} >
                     <Text>최대 등록 수량</Text>
-                    <Text>0/10</Text>
+                    <Text  style={{marginLeft: 5 }}>0/10</Text>
                 </View>      
-                <View style={{ flexDirection: "row", alignItems: "flex-start", justifyContent: "space-around", marginTop: 10 }}>
-                    <Text stlye={{}}>유형</Text>
-                    <Text style={{}}>등록한 골드 입찰 금액</Text>
-                    <Text>크리스탈 수량</Text>
-                    <Text>비용</Text>
-                    <Text>남은 거래 시간</Text>
+                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-around", marginTop: 10 }}>
+                    <View style={{ width: '13%', alignItems: "center" }}>
+                        <Text stlye={{}}>유형</Text>
+                    </View>
+                    <View style={{ width: '32%', alignItems: "center"  }}>
+                        <Text style={{}}>등록한 골드 입찰 금액</Text>
+                    </View>
+                    <View style={{ width: '20%', alignItems: "center"  }}>
+                        <Text>크리스탈 수량</Text>
+                    </View>
+                    <View style={{ width: '10%', alignItems: "center"  }}>
+                        <Text>비용</Text>
+                    </View>
+                    <View style={{ width: '25%', alignItems: "center"  }}>
+                        <Text>남은 거래 시간</Text>
+                    </View>                    
                 </View>          
                 <View style={{marginTop: 15}}>
                     <FlatList

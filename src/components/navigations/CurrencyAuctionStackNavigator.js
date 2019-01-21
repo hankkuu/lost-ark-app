@@ -32,8 +32,8 @@ const TapCurrencyNavigator = createMaterialTopTabNavigator({
 )
 
 const TapHistoryNavigator = createMaterialTopTabNavigator({
-    Progress: { screen: ProgressScreen },
-    Result: { screen: Resultcreen },    
+    Progress: { screen: ProgressScreen, navigationOptions: { title: '진행 중 거래' } },
+    Result: { screen: Resultcreen, navigationOptions: { title: '거래 결과 내역' } },    
 },
     collapsibleTabConfig({
         animationEnabled: true,

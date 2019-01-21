@@ -87,6 +87,12 @@ const navigatorConfig = {
                     header: null
                 })
             }
+            case 5: 
+            {
+                return ({
+                    header: null
+                })
+            }
         }            
     },
     
